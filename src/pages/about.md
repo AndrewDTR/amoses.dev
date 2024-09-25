@@ -1,3 +1,11 @@
+---
+layout: "../layouts/Blog.astro"
+title: "Hello World"
+subtitle: "Things I've learned from saying Hello to the world"
+author: Andrew
+tags: ["one", "two", "three"]
+---
+
 # h1 Heading 8-)
 ## h2 Heading
 ### h3 Heading
