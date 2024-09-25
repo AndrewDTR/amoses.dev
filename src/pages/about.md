@@ -6,6 +6,14 @@ author: Andrew
 tags: ["one", "two", "three"]
 ---
 
+
+<a href="https://sub.example.com/page">External Link with Subdomain</a><br>
+    <a href="https://www.google.com/">Google</a><br>
+    <a href="/local/path">Local Link</a><br>
+    <a href="#section">Anchor Link</a><br>
+    <a href="page.html">Relative Link</a><br>
+
+    
 # h1 Heading 8-)
 ## h2 Heading
 ### h3 Heading

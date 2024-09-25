@@ -15,7 +15,7 @@ import "../styles/global.css";
   <body>
     <div class="page-wrapper">
       <Header />
-      
+
       <!-- First slot for content outside the content div -->
       <slot name="outside-content" />
 
@@ -26,6 +26,49 @@ import "../styles/global.css";
 
       <Footer />
     </div>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <div id="tooltip" class="tooltip"></div>
+
+    <script>
+      (function () {
+        const tooltip = document.getElementById("tooltip");
+
+        document.addEventListener("mouseover", function (event) {
+          const target = event.target;
+          if (target.tagName.toLowerCase() === "a") {
+            const href = target.getAttribute("href");
+
+            const link = document.createElement("a");
+            link.href = href;
+
+            if (link.hostname && link.hostname !== location.hostname) {
+              const displayHostname = link.hostname.replace(/^www\./, "");
+
+              tooltip.textContent = displayHostname;
+              tooltip.style.display = "block";
+              tooltip.style.left = event.pageX + 10 + "px";
+              tooltip.style.top = event.pageY + 10 + "px";
+            }
+          }
+        });
+
+        document.addEventListener("mouseout", function (event) {
+          if (event.target.tagName.toLowerCase() === "a") {
+            tooltip.style.display = "none";
+          }
+        });
+
+        document.addEventListener("mousemove", function (event) {
+          if (tooltip.style.display === "block") {
+            tooltip.style.left = event.pageX + 10 + "px";
+            tooltip.style.top = event.pageY + 10 + "px";
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
