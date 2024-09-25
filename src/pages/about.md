@@ -1,19 +1,233 @@
+# h1 Heading 8-)
+## h2 Heading
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
+
+
+## Horizontal Rules
+
+___
+
 ---
-layout: "../layouts/BaseLayout.astro"
----
 
-# Hello World
+***
 
-Lorem ipsum odor amet, consectetuer adipiscing elit. Sem ac proin erat; efficitur maecenas lobortis tempus. Sed duis euismod ultricies netus arcu magnis rutrum velit. Hac himenaeos finibus lacus nascetur curabitur ornare montes. Nibh ullamcorper risus ligula, leo mauris scelerisque ex felis. Sed pretium gravida volutpat semper nisl primis pellentesque eu torquent. Tempus vulputate efficitur etiam class diam sapien potenti? 
 
-```js
-for i in range(0,5)
+## Typographic replacements
+
+Enable typographer option to see result.
+
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+
+test.. test... test..... test?..... test!....
+
+!!!!!! ???? ,,  -- ---
+
+"Smartypants, double quotes" and 'single quotes'
+
+
+## Emphasis
+
+**This is bold text**
+
+__This is bold text__
+
+*This is italic text*
+
+_This is italic text_
+
+~~Strikethrough~~
+
+
+## Blockquotes
+
+
+> Blockquotes can also be nested...
+>> ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
+
+
+## Lists
+
+Unordered
+
++ Create a list by starting a line with `+`, `-`, or `*`
++ Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    * Ac tristique libero volutpat at
+    + Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
++ Very easy!
+
+Ordered
+
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+
+
+1. You can use sequential numbers...
+1. ...or keep all the numbers as `1.`
+
+Start numbering with offset:
+
+57. foo
+1. bar
+
+
+## Code
+
+Inline `code`
+
+Indented code
+
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
+
+
+Block code "fences"
+
+```
+Sample text here...
 ```
 
-Magna risus eleifend lorem maximus amet sagittis erat. Taciti lacinia sed cras primis suspendisse habitasse; conubia pretium nam. Proin dapibus vestibulum sit curae commodo himenaeos ornare accumsan aenean. Maecenas mollis maecenas tortor non, semper dui. Volutpat justo tortor in nec posuere ipsum gravida fusce. Fermentum sociosqu consectetur non et dictum ullamcorper.
+Syntax highlighting
 
-Suspendisse sodales non mattis metus fames mus vulputate enim at. Neque adipiscing faucibus curae pulvinar gravida. Est dapibus sapien euismod convallis tempus aenean tristique. Lacinia himenaeos montes lacinia et diam. Ante pulvinar eros habitasse pharetra sodales ante. Maecenas posuere aliquet volutpat maximus eleifend scelerisque phasellus primis. Turpis metus venenatis integer neque cras vel pellentesque nulla.
+``` js
+var foo = function (bar) {
+  return bar++;
+};
 
-Est nec pulvinar nibh adipiscing, porttitor integer sit. Urna nascetur ut lacus semper; faucibus facilisi molestie. Egestas proin nunc; luctus quis interdum tortor eleifend pulvinar cubilia. Lobortis primis turpis inceptos himenaeos phasellus ipsum conubia hendrerit. Mi bibendum torquent sociosqu lectus at diam placerat laoreet. Maximus convallis quisque accumsan bibendum malesuada.
+console.log(foo(5));
+```
 
-Gravida nullam dignissim, potenti efficitur blandit lorem ut? Ornare eros sodales lacinia hac pellentesque bibendum leo. Condimentum natoque montes nec vestibulum lectus porttitor sed. Vestibulum accumsan ex, ligula metus curae ornare. Nullam habitasse nam rutrum nam augue taciti feugiat tincidunt. Facilisi lorem praesent primis eros urna ex maximus vel. Nisl pulvinar nulla amet venenatis tincidunt condimentum vitae. Suscipit et luctus bibendum penatibus nisi maximus ullamcorper.
+## Tables
+
+| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+Right aligned columns
+
+| Option | Description |
+| ------:| -----------:|
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+
+## Links
+
+[link text](http://dev.nodeca.com)
+
+[link with title](http://nodeca.github.io/pica/demo/ "title text!")
+
+Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+
+
+## Images
+
+![Minion](https://octodex.github.com/images/minion.png)
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+
+Like links, Images also have a footnote style syntax
+
+![Alt text][id]
+
+With a reference later in the document defining the URL location:
+
+[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+
+
+## Plugins
+
+The killer feature of `markdown-it` is very effective support of
+[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
+
+
+### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
+
+> Classic markup: :wink: :cry: :laughing: :yum:
+>
+> Shortcuts (emoticons): :-) :-( 8-) ;)
+
+see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
+
+
+### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
+
+- 19^th^
+- H~2~O
+
+
+### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
+
+++Inserted text++
+
+
+### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
+
+==Marked text==
+
+
+### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
+
+Footnote 1 link[^first].
+
+Footnote 2 link[^second].
+
+Inline footnote^[Text of inline footnote] definition.
+
+Duplicated footnote reference[^second].
+
+[^first]: Footnote **can have markup**
+
+    and multiple paragraphs.
+
+[^second]: Footnote text.
+
+
+### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
+
+Term 1
+
+:   Definition 1
+with lazy continuation.
+
+Term 2 with *inline markup*
+
+:   Definition 2
+
+        { some code, part of Definition 2 }
+
+    Third paragraph of definition 2.
+
+_Compact style:_
+
+Term 1
+  ~ Definition 1
+
+Term 2
+  ~ Definition 2a
+  ~ Definition 2b
+
+
+### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
+
+This is HTML abbreviation example.
+
+It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
+
+*[HTML]: Hyper Text Markup Language
+
+### [Custom containers](https://github.com/markdown-it/markdown-it-container)
+
+::: warning
+*here be dragons*
+:::
