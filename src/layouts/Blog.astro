@@ -9,14 +9,14 @@ const { frontmatter } = Astro.props;
     <p class="blog-title">{frontmatter.title}</p>
     <p class="subtitle">{frontmatter.subtitle}</p>
     <p class="others">
-      <i class="fa-solid fa-user" style="padding-right: 2px;"></i>
+      <i class="fa-solid fa-user fa-sm	" style="padding-right: 2px;"></i>
       By {frontmatter.author || "Me"} | <i
-        class="fa-regular fa-calendar"
+        class="fa-regular fa-calendar fa-sm	"
         style="padding-right: 2px;"></i>
       {frontmatter.date || "Date Unknown"}
     </p>
     <p class="tags">
-      <i class="fa-solid fa-tag" style="padding-right: 2px;"></i>
+      <i class="fa-solid fa-tag fa-sm" style="padding-right: 2px;"></i>
       Tags:
       {frontmatter.tags && frontmatter.tags.map((tag) => <code>{tag}</code>)}
     </p>
