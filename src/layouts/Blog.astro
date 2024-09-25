@@ -1,0 +1,64 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <!-- Content for the outside slot (left-aligned, outside content div) -->
+  <div slot="outside-content">
+    <p class="blog-title">{frontmatter.title}</p>
+    <p class="subtitle">{frontmatter.subtitle}</p>
+    <p class="others">
+      By {frontmatter.author || "Me"} | {frontmatter.date || "Date Unknown"}
+    </p>
+    <p class="tags">
+      Tags:
+      {frontmatter.tags && frontmatter.tags.map((tag) => <code>{tag}</code>)}
+    </p>
+  </div>
+
+  <!-- Main blog content inside the content div -->
+  <slot />
+
+  <style>
+    .blog-title {
+      font-size: 2.4em;
+      font-weight: bold;
+      margin-top: 0.5em;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      font-size: 1.25em;
+      margin-top: 0.2em;
+      margin-bottom: 1em;
+      font-style: italic;
+    }
+
+    .others {
+      margin-bottom: 0;
+    }
+
+    code {
+      padding: 0.2em 0.4em;
+      margin: 0;
+      font-size: 85%;
+      white-space: break-spaces;
+      background-color: #777f8a33;
+      border-radius: 6px;
+      color: white;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+        monospace;
+      margin-right: 2px;
+    }
+
+    .tags {
+      margin-top: 3px;
+    }
+
+    .content {
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+  </style>
+</BaseLayout>

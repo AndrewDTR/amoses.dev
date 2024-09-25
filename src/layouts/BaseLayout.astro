@@ -1,0 +1,30 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Blog</title>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <Header />
+      
+      <!-- First slot for content outside the content div -->
+      <slot name="outside-content" />
+
+      <div class="content">
+        <!-- Second slot for content inside the content div -->
+        <slot />
+      </div>
+
+      <Footer />
+    </div>
+  </body>
+</html>

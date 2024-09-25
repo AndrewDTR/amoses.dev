@@ -10,6 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.15.9"
+    "astro": "^4.15.9",
+    "childprocess": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.1",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

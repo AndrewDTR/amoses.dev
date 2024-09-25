@@ -1,0 +1,66 @@
+---
+import childProcess from "child_process";
+
+const hash = childProcess
+  .execSync("git rev-parse --short HEAD")
+  .toString()
+  .trim();
+---
+
+<footer class="footer-container">
+  <div class="footer-words">
+    <p>&copy; 2024 Andrew Moses</p>
+  </div>
+  <div class="footer-right">
+    <p class="made-with-love">Made with &lt3.</p>
+    <a
+      class="commit-hash"
+      href={`https://github.com/AndrewDTR/site/commit/${hash}`}
+      >Commit hash {hash}</a
+    >
+  </div>
+</footer>
+
+<style>
+  .footer-container {
+    width: 100%;
+    background-color: #392e2e;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+    margin-top: 20px;
+    border-top: 2px solid #f0e7d8;
+    margin-bottom: 5px;
+  }
+
+  .footer-words {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-words p,
+  .footer-icons a {
+    margin-right: 20px;
+    color: #f0e7d8;
+    text-decoration: none;
+  }
+
+  .footer-icons a:hover,
+  .footer-words a:hover {
+    color: #ffaaaa;
+    text-decoration: underline;
+  }
+
+  .made-with-love,
+  .commit-hash {
+    display: inline-block;
+    margin-right: 10px; /* Adjust spacing as needed */
+  }
+</style>
