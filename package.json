@@ -10,7 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@expressive-code/plugin-line-numbers": "^0.37.0",
     "astro": "^4.15.9",
+    "astro-expressive-code": "^0.37.0",
     "childprocess": "^2.0.2"
   },
   "devDependencies": {

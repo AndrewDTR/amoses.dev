@@ -16,8 +16,10 @@ In probability theory, the expected value of a random variable \\(X\\) is a meas
 
 Lorem ipsum odor amet, consectetuer adipiscing elit. Sem ac proin erat; efficitur maecenas lobortis tempus. Sed duis euismod ultricies netus arcu magnis rutrum velit. Hac himenaeos finibus lacus nascetur curabitur ornare montes. Nibh ullamcorper risus ligula, leo mauris scelerisque ex felis. Sed pretium gravida volutpat semper nisl primis pellentesque eu torquent. Tempus vulputate efficitur etiam class diam sapien potenti? 
 
-```js
-for i in range(0,5)
+```js showLineNumbers
+// This code block will show line numbers
+console.log('Greetings from line 2!')
+console.log('I am on line 3')
 ```
 
 Magna risus eleifend lorem maximus amet sagittis erat. Taciti lacinia sed cras primis suspendisse habitasse; conubia pretium nam. Proin dapibus vestibulum sit curae commodo himenaeos ornare accumsan aenean. Maecenas mollis maecenas tortor non, semper dui. Volutpat justo tortor in nec posuere ipsum gravida fusce. Fermentum sociosqu consectetur non et dictum ullamcorper.
