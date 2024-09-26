@@ -10,9 +10,7 @@ console.log(currentPath);
     <a class={currentPath === "/posts" ? "nav bold" : "nav"} href="/posts"
       >Blog</a
     >
-    <a class="nav" href="/public/redacted_resume.pdf"
-      >Resume</a
-    >
+    <a class="nav" href="/public/redacted_resume.pdf">Resume</a>
     <a class={currentPath === "/about" ? "nav bold" : "nav"} href="/about"
       >About</a
     >
@@ -104,11 +102,13 @@ console.log(currentPath);
 
   .icons {
     margin-left: auto;
+    opacity: 1;
+    transition: opacity 0.1s;
   }
 
   svg {
     vertical-align: middle;
-    transition: fill 0.2s;
+    transition: fill 0.1s;
   }
 
   .svg-white {
@@ -117,5 +117,11 @@ console.log(currentPath);
 
   .svg-white:hover {
     fill: #ffaaaa;
+  }
+
+  @media (max-width: 680px) {
+    .icons {
+      opacity: 0;
+    }
   }
 </style>
