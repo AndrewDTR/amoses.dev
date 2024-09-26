@@ -5,7 +5,7 @@ const hasTags = frontmatter.tags && frontmatter.tags.length > 0;
 ---
 
 <BaseLayout>
-  <div slot="outside-content">
+  <div slot="outside-content" class="top">
     <p class="blog-title">{frontmatter.title}</p>
     <p class="subtitle">{frontmatter.subtitle}</p>
     <p class="others">
@@ -27,7 +27,7 @@ const hasTags = frontmatter.tags && frontmatter.tags.length > 0;
       )
     }
 
-    <hr class="custom-hr" />
+    <hr class="custom-hr" style="margin-top: 25px;" />
   </div>
 
   <slot />
@@ -71,6 +71,10 @@ const hasTags = frontmatter.tags && frontmatter.tags.length > 0;
     .content {
       margin-top: 0px;
       padding-top: 0px;
+    }
+
+    .top {
+      left-margin: 20px;
     }
   </style>
 </BaseLayout>
