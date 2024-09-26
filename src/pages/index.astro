@@ -11,29 +11,20 @@ const allPosts = await Astro.glob("./posts/*.md");
         <div class="whoami-box">
           <img class="image-of-me" src="./capitol-image.png" />
           <div class="write-text">
-            <p class="writeup" style="font-size: 1.1em;">
+            <p class="writeup">
               Hello! I'm Andrew Moses, an engineer who loves tinkering with
               anything remotely electronic. I'm currently a sophomore at the
-              <a
-                href="https://wisc.edu"
-                target="_blank"
-                style="font-size: 1.0em">University of Wisconsin-Madison</a
-              >, where I'm currently studying Computer Science. My current
+              <a href="https://wisc.edu" target="_blank" style="font-size: 1em;">University of Wisconsin-Madison</a>,
+              where I'm currently studying Computer Science. My current
               interests include computer vision and communication protocols
               (feel free to ask me about Zigbee or MQT!).
             </p>
-            <p class="writeup" style="margin-top: 0px;">
+            <p class="writeup">
               I've taken a recent interest in making projects that allow people
               to access information in a more convenient way. Check out my
-              writeup on the <a
-                href="/projects/upl-people-counter"
-                class="project-link"
-                style="font-size: 1.0em">UPL's people counter</a
-              > or my <a
-                href="/projects/ics-schedule-generator"
-                class="project-link"
-                style="font-size: 1.0em">.ics schedule generator</a
-              > for more info!
+              writeup on the <a href="/projects/upl-people-counter" class="project-link" style="font-size: 1em;">UPL's people counter</a>
+              or my <a href="/projects/ics-schedule-generator" class="project-link" style="font-size: 1em;">.ics schedule generator</a>
+              for more info!
             </p>
           </div>
         </div>
@@ -77,25 +68,53 @@ const allPosts = await Astro.glob("./posts/*.md");
     align-items: center;
     width: 100%;
     background-color: #392e2e;
-    height: auto;
     margin: 20px auto;
     border-radius: 7px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #f0e7d8;
+    border: 1px solid #f0e7d8;
+    padding: 20px;
+    box-sizing: border-box;
   }
 
   .image-of-me {
     width: auto;
     height: 170px;
     border-radius: 50%;
-    margin-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-right: 20px;
   }
 
   .writeup {
-    margin-left: 20px;
-    padding-right: 10px;
+    margin: 0;
+    margin-top: 8px;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .whoami-box {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .image-of-me {
+      margin: 0 0 10px 0;
+      height: 150px;
+    }
+
+    .writeup {
+      margin: 0;
+    }
+
+    .content-wrapper,
+    p,
+    ul {
+      width: 100%;
+      margin: 0;
+      padding: 0 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
   }
 </style>

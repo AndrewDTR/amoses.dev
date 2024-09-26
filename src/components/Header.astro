@@ -11,9 +11,7 @@ console.log(currentPath);
       >Blog</a
     >
     <a class="nav" href="/resume.pdf">Resume</a>
-    <a class={currentPath === "/about" ? "nav bold" : "nav"} href="/about"
-      >About</a
-    >
+    <!-- <a class={currentPath === "/about" ? "nav bold" : "nav"} href="/about">About</a> -->
     <a class={currentPath === "/projects" ? "nav bold" : "nav"} href="/projects"
       >Projects</a
     >
@@ -53,6 +51,18 @@ console.log(currentPath);
 </div>
 
 <style>
+  .header-container {
+    width: 100%;
+    background-color: #392e2e;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    margin-top: 5px;
+    border-bottom: 2px solid #f0e7d8;
+    box-sizing: border-box;
+  }
+
   .words {
     display: flex;
     align-items: center;
@@ -60,27 +70,6 @@ console.log(currentPath);
 
   .nav.bold {
     font-weight: bold;
-  }
-
-  .icons {
-    margin-left: auto;
-    display: flex; /* Add this line */
-    align-items: center; /* Optional: aligns icons vertically */
-  }
-
-  .icons a {
-    margin-right: 10px;
-  }
-
-  .header-container {
-    width: 100%;
-    background-color: #392e2e;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    /* padding: 0px 15px; */
-    margin-top: 5px;
-    border-bottom: 2px solid #f0e7d8;
   }
 
   .name {
@@ -106,14 +95,19 @@ console.log(currentPath);
 
   .icons {
     margin-left: auto;
-    opacity: 1;
-    transition: opacity 0.1s;
-    margin-right: 7px;
+    display: flex;
+    align-items: center;
+  }
+
+  .icons a {
+    margin-left: 10px;
   }
 
   svg {
     vertical-align: middle;
     transition: fill 0.1s;
+    width: 24px;
+    height: 24px;
   }
 
   .svg-white {
@@ -125,8 +119,34 @@ console.log(currentPath);
   }
 
   @media (max-width: 680px) {
+    .header-container {
+      flex-wrap: wrap;
+      height: auto;
+      padding: 10px 15px;
+    }
+
+    .words,
     .icons {
-      opacity: 0;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .words {
+      margin-bottom: 10px;
+    }
+
+    .nav {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    svg {
+      display: none;
+    }
+
+    .icons a {
+      margin-left: 10px;
+      margin-right: 10px;
     }
   }
 </style>
