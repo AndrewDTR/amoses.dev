@@ -5,63 +5,80 @@ const allPosts = await Astro.glob("./posts/*.md");
 
 <BaseLayout>
   <div slot="outside-content">
-    <div class="whoami-box">
-      <img class="image-of-me" src="./capitol-image.png" />
-      <div class="write-text">
-        <p class="writeup" style="font-size: 1.1em;">
-          Hello! I'm Andrew Moses, an engineer who loves tinkering with anything
-          remotely electronic. I'm currently a sophomore at the <a
-            href="https://wisc.edu"
-            target="_blank"
-            style="font-size: 1.0em">University of Wisconsin-Madison</a
-          >, where I'm currently studying Computer Science. My current interests
-          include computer vision and communication protocols (feel free to ask
-          me about Zigbee or MQT!).
-        </p>
-        <p class="writeup" style="margin-top: 0px;">
-          I've taken a recent interest in making projects that allow people to
-          access information in a more convenient way. Check out my writeup on
-          the <a
-            href="/projects/upl-people-counter"
-            class="project-link"
-            style="font-size: 1.0em">UPL's people counter</a
-          > or my <a
-            href="/projects/ics-schedule-generator"
-            class="project-link"
-            style="font-size: 1.0em">.ics schedule generator</a
-          > for more info!
-        </p>
+    <div class="everything">
+      <div class="content-wrapper">
+        <!-- New wrapper div -->
+        <div class="whoami-box">
+          <img class="image-of-me" src="./capitol-image.png" />
+          <div class="write-text">
+            <p class="writeup" style="font-size: 1.1em;">
+              Hello! I'm Andrew Moses, an engineer who loves tinkering with
+              anything remotely electronic. I'm currently a sophomore at the
+              <a
+                href="https://wisc.edu"
+                target="_blank"
+                style="font-size: 1.0em">University of Wisconsin-Madison</a
+              >, where I'm currently studying Computer Science. My current
+              interests include computer vision and communication protocols
+              (feel free to ask me about Zigbee or MQT!).
+            </p>
+            <p class="writeup" style="margin-top: 0px;">
+              I've taken a recent interest in making projects that allow people
+              to access information in a more convenient way. Check out my
+              writeup on the <a
+                href="/projects/upl-people-counter"
+                class="project-link"
+                style="font-size: 1.0em">UPL's people counter</a
+              > or my <a
+                href="/projects/ics-schedule-generator"
+                class="project-link"
+                style="font-size: 1.0em">.ics schedule generator</a
+              > for more info!
+            </p>
+          </div>
+        </div>
+        <p>Here are some of my latest blog posts:</p>
+        <ul>
+          {
+            allPosts.slice(0, 5).map((post) => (
+              <li>
+                <a href={post.url}>
+                  {post.frontmatter.title} -{" "}
+                  <i>
+                    {post.frontmatter.subtitle} | {post.frontmatter.date}
+                  </i>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </div>
-
-    <p>Here are some of my latest blog posts:</p>
-    {
-      allPosts.slice(0, 5).map((post) => (
-        <li>
-          <a href={post.url}>
-            {post.frontmatter.title} -{" "}
-            <i>
-              {post.frontmatter.subtitle} | {post.frontmatter.date}
-            </i>
-          </a>
-        </li>
-      ))
-    }
   </div>
 </BaseLayout>
+
 <style>
-  .write-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .content-wrapper {
+    width: 90%;
+    margin: 0 auto;
   }
+
+  p,
+  ul {
+    margin-left: 20px;
+  }
+
+  ul {
+    padding-left: 20px;
+  }
+
   .whoami-box {
     display: flex;
     align-items: center;
     width: 100%;
     background-color: #392e2e;
     height: auto;
-    margin-top: 20px;
+    margin: 20px auto;
     border-radius: 7px;
     border-style: solid;
     border-width: 1px;
