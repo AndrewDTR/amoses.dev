@@ -9,15 +9,15 @@ const hash = childProcess
 
 <footer class="footer-container">
   <div class="footer-words">
-    <p>&copy; 2024 Andrew Moses</p>
+    <p style="margin-left: 15px;">&copy; 2024 Andrew Moses</p>
   </div>
   <div class="footer-right">
     <p class="made-with-love" style="margin-right: 5px;">Made with &lt3. Commit</p>
     <a
       class="commit-hash"
       href={`https://github.com/AndrewDTR/website/commit/${hash}`}
-      style="margin-left: 0;"
-      target="_blank"
+      style="margin-left: 0; margin-right: 20px;"
+      target=""
       >{hash}</a
     >
   </div>
@@ -31,7 +31,7 @@ const hash = childProcess
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 15px;
+    /* padding: 0px 15px; */
     margin-top: 20px;
     border-top: 2px solid #f0e7d8;
     margin-bottom: 5px;

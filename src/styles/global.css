@@ -8,7 +8,7 @@ a {
   font-size: 1.1em;
 }
 body {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
   background-color: #1b1919;
   min-height: 100vh;
@@ -38,7 +38,7 @@ h1 {
 
 .tooltip {
   position: absolute;
-  background-color: #392e2e;
+  background-color: #653232;
   color: #f0e7d8;
   padding: 5px 8px;
   font-size: 14px;
@@ -46,4 +46,84 @@ h1 {
   pointer-events: none;
   font-weight: bold;
   border: 1px solid #f0e7d8;
+}
+
+* {
+  font-family: "Charter", sans-serif;
+  color: #f0e7d8;
+}
+
+p,
+a {
+  font-size: 1.1em;
+}
+body {
+  width: 85%;
+  margin: 0 auto;
+  background-color: #1b1919;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.content {
+  flex-grow: 1;
+  width: 80%;
+  margin: 0 auto;
+}
+
+footer {
+  margin-top: auto;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+
+a[target="_blank"]:not(.noicon) {
+  position: relative;
+  padding-right: 1.15em;
+  transition: 0.2s;
+}
+
+a[target="_blank"]:not(.noicon)::after {
+  background-image: url("./in-new-tab.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: invert(96%) sepia(9%) saturate(401%) hue-rotate(342deg)
+    brightness(98%) contrast(91%);
+  transition: 0.2s;
+}
+
+a {
+  color: #f0e7d8;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #ffaaaa;
+}
+
+a[target="_blank"]:not(.noicon):hover::after {
+  transition: 0.2s;
+
+  filter: brightness(0) saturate(100%) invert(78%) sepia(14%) saturate(1583%)
+    hue-rotate(309deg) brightness(98%) contrast(117%);
 }

@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <p>dfjasdijpadsp</p>
+  <div slot="outside-content">
+    <div class="whoami-box">
+      <img class="image-of-me" src="./capitol-image.png" />
+      <p class="writeup" style="font-size: 1.1em;">Hello! I'm Andrew Moses, an engineer who loves tinkering with anything remotely electronic. I'm currently a sophomore at the <a href="https://wisc.edu" target="_blank" style="font-size: 1.0em">University of Wisconsin-Madison</a>, where I'm currently studying Computer Science. My current interests include computer vision and communication protocols (feel free to ask me about Zigbee or MQT!). </p>
+    </div>
+  </div>
+</BaseLayout>
+<style>
+  .whoami-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #392e2e;
+    height: 180px;
+    margin-top: 20px;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #f0e7d8;
+  }
+
+  .image-of-me {
+    width: auto;
+    height: 90%;
+    border-radius: 50%;
+    margin-left: 20px;
+  }
+
+  .writeup {
+    margin-left: 20px;
+    padding-right: 10px;;
+  }
+</style>

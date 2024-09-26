@@ -10,7 +10,7 @@ console.log(currentPath);
     <a class={currentPath === "/posts" ? "nav bold" : "nav"} href="/posts"
       >Blog</a
     >
-    <a class="nav" href="/public/redacted_resume.pdf">Resume</a>
+    <a class="nav" href="/redacted_resume.pdf">Resume</a>
     <a class={currentPath === "/about" ? "nav bold" : "nav"} href="/about"
       >About</a
     >
@@ -19,7 +19,7 @@ console.log(currentPath);
     >
   </div>
   <div class="icons">
-    <a href="https://www.linkedin.com/in/andrewmses/" target="_blank">
+    <a href="https://www.linkedin.com/in/andrewmses/" target="_blank" class="noicon">
       <svg
         class="svg-white"
         xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ console.log(currentPath);
         ></path>
       </svg>
     </a>
-    <a href="https://github.com/AndrewDTR" target="_blank">
+    <a href="https://github.com/AndrewDTR" target="_blank" class="noicon">
       <svg
         class="svg-white"
         width="24"
@@ -74,7 +74,7 @@ console.log(currentPath);
     height: 60px;
     display: flex;
     align-items: center;
-    padding: 0px 15px;
+    /* padding: 0px 15px; */
     margin-top: 5px;
     border-bottom: 2px solid #f0e7d8;
   }
@@ -104,6 +104,7 @@ console.log(currentPath);
     margin-left: auto;
     opacity: 1;
     transition: opacity 0.1s;
+    margin-right: 7px;
   }
 
   svg {
