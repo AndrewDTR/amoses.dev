@@ -14,26 +14,36 @@ const allPosts = await Astro.glob("./posts/*.md");
             <p class="writeup">
               Hello! I'm Andrew Moses, an engineer who loves tinkering with
               anything remotely electronic. I'm currently a sophomore at the
-              <a href="https://wisc.edu" target="_blank" style="font-size: 1em;">University of Wisconsin-Madison</a>,
-              where I'm currently studying Computer Science. My current
+              <a href="https://wisc.edu" target="_blank" style="font-size: 1em;"
+                >University of Wisconsin-Madison</a
+              >, where I'm currently studying Computer Science. My current
               interests include computer vision and communication protocols
               (feel free to ask me about Zigbee or MQT!).
             </p>
             <p class="writeup writeup2">
               I've taken a recent interest in making projects that allow people
               to access information in a more convenient way. Check out my
-              writeup on the <a href="/projects/upl-people-counter" class="project-link" style="font-size: 1em;">UPL's people counter</a>
-              or my <a href="/projects/ics-schedule-generator" class="project-link" style="font-size: 1em;">.ics schedule generator</a>
+              writeup on the <a
+                href="/projects/upl-people-counter"
+                class="project-link"
+                style="font-size: 1em;">UPL's people counter</a
+              >
+              or my <a
+                href="/projects/ics-schedule-generator"
+                class="project-link"
+                style="font-size: 1em;">.ics schedule generator</a
+              >
               for more info!
             </p>
           </div>
         </div>
+        <hr class="custom-hr" />
         <p>Here are some of my latest blog posts:</p>
         <ul>
           {
             allPosts.slice(0, 5).map((post) => (
               <li>
-                <a href={post.url}>
+                <a href={post.url} class="blog-bullet">
                   {post.frontmatter.title} -{" "}
                   <i>
                     {post.frontmatter.subtitle} | {post.frontmatter.date}
@@ -119,5 +129,18 @@ const allPosts = await Astro.glob("./posts/*.md");
     ul {
       padding-left: 20px;
     }
+  }
+
+  .blog-bullet,
+  .blog-bullet i {
+    color: #f0e7d8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    text-decoration: underline;
+  }
+
+  .blog-bullet:hover,
+  .blog-bullet:hover i {
+    color: #ffaaaa;
   }
 </style>

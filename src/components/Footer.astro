@@ -9,18 +9,24 @@ const hash = childProcess
 
 <footer class="footer-container">
   <div class="footer-words">
-    <p style="margin-left: 15px;">&copy; 2024 Andrew Moses</p>
+    <p>&copy; 2024 Andrew Moses</p>
   </div>
   <div class="footer-right">
-    <p class="made-with-love" style="margin-right: 5px;">
-      Made with &lt3. Commit
-    </p>
-    <a
-      class="commit-hash"
-      href={`https://github.com/AndrewDTR/website/commit/${hash}`}
-      style="margin-left: 0; margin-right: 20px;"
-      target="_blank">{hash}</a
-    >
+    <div class="footer-section">
+      <p class="made-with-love">Made with &lt;3</p>
+    </div>
+    <div class="footer-section">
+      <p class="commit-text">
+        Commit
+        <a
+          class="commit-hash"
+          href={`https://github.com/AndrewDTR/website/commit/${hash}`}
+          target="_blank"
+        >
+          {hash}
+        </a>
+      </p>
+    </div>
   </div>
 </footer>
 
@@ -28,14 +34,14 @@ const hash = childProcess
   .footer-container {
     width: 100%;
     background-color: #392e2e;
-    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding: 0px 15px; */
     margin-top: 20px;
     border-top: 2px solid #f0e7d8;
     margin-bottom: 5px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
   }
 
   .footer-words {
@@ -46,24 +52,58 @@ const hash = childProcess
   .footer-right {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
   }
 
-  .footer-words p,
-  .footer-icons a {
+  .footer-section {
+    display: flex;
+    align-items: center;
     margin-right: 20px;
-    color: #f0e7d8;
-    text-decoration: none;
   }
 
-  .footer-icons a:hover,
-  .footer-words a:hover {
+  .made-with-love,
+  .commit-text {
+    color: #f0e7d8;
+    margin: 0;
+  }
+
+  .commit-hash {
+    margin-left: 5px;
+    color: #f0e7d8;
+    text-decoration: underline;
+    font-size: 1em;
+  }
+
+  .commit-hash:hover {
     color: #ffaaaa;
     text-decoration: underline;
   }
 
-  .made-with-love,
-  .commit-hash {
-    display: inline-block;
-    margin-right: 10px; /* Adjust spacing as needed */
+  @media (max-width: 600px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 15px;
+    }
+
+    .footer-right {
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .footer-section {
+      width: 48%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+
+    .footer-section:last-child {
+      text-align: right;
+    }
+
+    .commit-hash {
+      word-break: break-all;
+    }
   }
 </style>

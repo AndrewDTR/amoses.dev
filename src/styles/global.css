@@ -101,3 +101,15 @@ a {
 a:hover {
   color: #ffaaaa;
 }
+
+hr.custom-hr {
+  border: none;
+  height: 5px;
+  background-image: repeating-linear-gradient(
+    135deg,
+    #f0e7d8 0,
+    #f0e7d8 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}

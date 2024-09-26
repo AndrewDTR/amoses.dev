@@ -3,6 +3,7 @@ layout: "../../layouts/Blog.astro"
 title: "Blog 1"
 date: "2021-09-01"
 subtitle: "This is the first blog post"
+# tags: ["one", "two", "three"]
 ---
 
 # Hello World
