@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const allPosts = await Astro.glob("./blog/*.md");
+
+function groupPostsByYearAndMonth(posts) {
+  const grouped = {};
+
+  posts.forEach(post => {
+    const date = new Date(post.frontmatter.date);
+    const year = date.getFullYear();
+    const month = date.toLocaleString('default', { month: 'long' });
+
+    const key = `${year}-${month}`;
+    if (!grouped[key]) {
+      grouped[key] = [];
+    }
+    grouped[key].push(post);
+  });
+
+  return grouped;
+}
+
+const groupedPosts = groupPostsByYearAndMonth(allPosts);
+const sortedKeys = Object.keys(groupedPosts).sort((a, b) => new Date(b) - new Date(a)); // Sort keys in reverse order
+---
+
+<BaseLayout>
+  {sortedKeys.map((key) => {
+    const [year, month] = key.split("-");
+    return (
+      <section key={key}>
+        <h2 style="margin-bottom: 0px;">{month} {year}</h2>
+        <ul style="margin-top: 4px;">
+          {groupedPosts[key].map((post) => (
+            <li key={post.url}>
+              <a href={post.url} class="blog-link">
+                {post.frontmatter.title} - <i>{post.frontmatter.subtitle}</i>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
+  })}
+</BaseLayout>
+
+<style>
+  .blog-link,
+  .blog-link i {
+    color: #f0e7d8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    text-decoration: underline;
+  }
+
+  .blog-link:hover,
+  .blog-link:hover i {
+    color: #ffaaaa;
+  }
+</style>

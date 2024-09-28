@@ -3,8 +3,7 @@
   color: #f0e7d8;
 }
 
-p,
-a {
+p {
   font-size: 1.1em;
 }
 body {
@@ -59,10 +58,6 @@ h1 {
   color: #f0e7d8;
 }
 
-p,
-a {
-  font-size: 1.1em;
-}
 body {
   width: 85%;
   margin: 0 auto;
@@ -112,4 +107,21 @@ hr.custom-hr {
     transparent 10px,
     transparent 20px
   );
+}
+
+blockquote p::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background: #c8ccd0;
+}
+blockquote {
+  color: #535a60;
+  padding-left: 1em;
+  position: relative;
+  font-style: italic;
 }

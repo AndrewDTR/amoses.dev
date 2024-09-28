@@ -1,25 +1,17 @@
 ---
-layout: "../layouts/BaseLayout.astro"
+layout: "../../layouts/Blog.astro"
+title: "Blog 1"
+date: "2030-01-30"
+subtitle: "This is the first blog post"
+# tags: ["one", "two", "three"]
 ---
 
-## Introduction to Inline LaTeX
-
-In mathematics, the quadratic formula is used to solve quadratic equations. The general form of a quadratic equation is \\(ax^2 + bx + c = 0\\). The solutions to this equation can be found using the quadratic formula: $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$. This formula provides the roots of the quadratic equation, which are the values of \\(x\\) that satisfy the equation.
-
-## Physics and Kinematics
-
-In physics, the equations of motion describe the behavior of a moving object. One of the most commonly used equations is \\(v = u + at\\), where \\(v\\) is the final velocity, \\(u\\) is the initial velocity, \\(a\\) is the acceleration, and \\(t\\) is the time. Another important equation is $$s = ut + \frac{1}{2}at^2$$ which gives the displacement \\(s\\) of an object under constant acceleration.
-
-## Probability and Statistics
-
-In probability theory, the expected value of a random variable \\(X\\) is a measure of the center of the distribution of the variable. It is given by $$E(X) = \sum_{i} x_i p(x_i)$$, where \\(x_i\\) are the possible values of \\(X\\) and \\(p(x_i)\\) is the probability of \\(x_i\\). In statistics, the standard deviation \\(\sigma\\) is a measure of the amount of variation or dispersion in a set of values. It is calculated as $$\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2}$$, where \\(N\\) is the number of values, \\(x_i\\) are the individual values, and \\(\mu\\) is the mean of the values.
+# Hello World
 
 Lorem ipsum odor amet, consectetuer adipiscing elit. Sem ac proin erat; efficitur maecenas lobortis tempus. Sed duis euismod ultricies netus arcu magnis rutrum velit. Hac himenaeos finibus lacus nascetur curabitur ornare montes. Nibh ullamcorper risus ligula, leo mauris scelerisque ex felis. Sed pretium gravida volutpat semper nisl primis pellentesque eu torquent. Tempus vulputate efficitur etiam class diam sapien potenti? 
 
-```js showLineNumbers
-// This code block will show line numbers
-console.log('Greetings from line 2!')
-console.log('I am on line 3')
+```js
+for i in range(0,5)
 ```
 
 Magna risus eleifend lorem maximus amet sagittis erat. Taciti lacinia sed cras primis suspendisse habitasse; conubia pretium nam. Proin dapibus vestibulum sit curae commodo himenaeos ornare accumsan aenean. Maecenas mollis maecenas tortor non, semper dui. Volutpat justo tortor in nec posuere ipsum gravida fusce. Fermentum sociosqu consectetur non et dictum ullamcorper.

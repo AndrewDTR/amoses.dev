@@ -1,28 +1,34 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const allPosts = await Astro.glob("./posts/*.md");
+const allPosts = await Astro.glob("./blog/*.md");
 ---
 
 <BaseLayout>
   <div slot="outside-content">
     <div class="everything">
       <div class="content-wrapper">
-        <!-- New wrapper div -->
         <div class="whoami-box">
           <img class="image-of-me" src="./capitol-image.png" />
           <div class="write-text">
             <p class="writeup">
               Hello! I'm Andrew Moses, an engineer who loves tinkering with
-              anything remotely electronic. I'm currently a sophomore at the
+              anything remotely electronic. I'm a sophomore at the
               <a href="https://wisc.edu" target="_blank" style="font-size: 1em;"
                 >University of Wisconsin-Madison</a
-              >, where I'm currently studying Computer Science. My current
-              interests include computer vision and communication protocols
-              (feel free to ask me about Zigbee or MQT!).
+              >, where I'm studying Computer Science. Right now, my interests
+              include computer vision and communication protocols (feel free to
+              ask me about Zigbee or MQTT!). Most of the time you can find me
+              hanging at the
+              <a
+                href="https://www.upl.cs.wisc.edu/"
+                target="_blank"
+                style="font-size: 1em;">Undergraduate Projects Lab</a
+              >
+              at the Computer Sciences building.
             </p>
             <p class="writeup writeup2">
               I've taken a recent interest in making projects that allow people
-              to access information in a more convenient way. Check out my
+              to access information in more convenient ways. Check out my
               writeup on the <a
                 href="/projects/upl-people-counter"
                 class="project-link"
@@ -38,12 +44,12 @@ const allPosts = await Astro.glob("./posts/*.md");
           </div>
         </div>
         <hr class="custom-hr" />
-        <p>Here are some of my latest blog posts:</p>
-        <ul>
+        <p>Here are the three latest blogs I've published. You can find the entire list of blogs <a href="/blog" style="font-size: 1em;">here</a>.</p>
+        <ul class="blog-list">
           {
             allPosts.slice(0, 5).map((post) => (
-              <li>
-                <a href={post.url} class="blog-bullet">
+              <li class="blog-post-item">
+                <a href={post.url} class="blog-post-link">
                   {post.frontmatter.title} -{" "}
                   <i>
                     {post.frontmatter.subtitle} | {post.frontmatter.date}
@@ -143,4 +149,48 @@ const allPosts = await Astro.glob("./posts/*.md");
   .blog-bullet:hover i {
     color: #ffaaaa;
   }
+
+  .blog-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .blog-post-item {
+    background-color: #1b1919;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+    border: 1px solid #f0e7d8;
+  }
+
+  .blog-post-item:hover {
+    background-color: #2a2626;
+    transform: scale(1.01);
+  }
+
+  .blog-post-link {
+    text-decoration: none;
+    color: #f0e7d8;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .blog-post-link i {
+    color: #d3c4b0;
+  }
+
+  .blog-post-item:hover .blog-post-link {
+    color: #f0e7d8;
+  }
+
+  .blog-list {
+    margin-left: 25px;
+    margin-right: 50px;
+  }
+
 </style>
