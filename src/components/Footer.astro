@@ -5,11 +5,13 @@ const hash = childProcess
   .execSync("git rev-parse --short HEAD")
   .toString()
   .trim();
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer class="footer-container">
   <div class="footer-words">
-    <p>&copy; 2024 Andrew Moses</p>
+    <p>&copy; {currentYear} Andrew Moses</p>
   </div>
   <div class="footer-right">
     <div class="footer-section">

@@ -1,6 +1,13 @@
 * {
   font-family: "Charter", sans-serif;
   color: #f0e7d8;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+  }
 }
 
 p {
@@ -124,4 +131,8 @@ blockquote {
   padding-left: 1em;
   position: relative;
   font-style: italic;
+}
+
+.anchor-link {
+  padding-right: 8px;
 }

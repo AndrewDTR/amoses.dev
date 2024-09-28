@@ -1,6 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await Astro.glob("./blog/*.md");
+
+allPosts.sort(
+  (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+);
 ---
 
 <BaseLayout>
@@ -44,18 +48,23 @@ const allPosts = await Astro.glob("./blog/*.md");
           </div>
         </div>
         <hr class="custom-hr" />
-        <p>Here are the three latest blogs I've published. You can find the entire list of blogs <a href="/blog" style="font-size: 1em;">here</a>.</p>
+        <p>
+          Here are the three latest blogs I've published. You can find the
+          entire list of my writing <a href="/blog" style="font-size: 1em;"
+            >here</a
+          >.
+        </p>
         <ul class="blog-list">
           {
             allPosts.slice(0, 5).map((post) => (
-              <li class="blog-post-item">
-                <a href={post.url} class="blog-post-link">
+              <a href={post.url} class="blog-post-link">
+                <li class="blog-post-item">
                   {post.frontmatter.title} -{" "}
                   <i>
                     {post.frontmatter.subtitle} | {post.frontmatter.date}
                   </i>
-                </a>
-              </li>
+                </li>
+              </a>
             ))
           }
         </ul>
@@ -154,6 +163,8 @@ const allPosts = await Astro.glob("./blog/*.md");
     list-style-type: none;
     padding: 0;
     margin: 0;
+    margin-left: 25px;
+    margin-right: 50px;
   }
 
   .blog-post-item {
@@ -165,10 +176,17 @@ const allPosts = await Astro.glob("./blog/*.md");
       background-color 0.2s ease,
       transform 0.2s ease;
     border: 1px solid #f0e7d8;
+    color: #f0e7d8;
   }
 
   .blog-post-item:hover {
     background-color: #2a2626;
+    transform: scale(1.004);
+  }
+
+  .blog-post-item:active {
+    background-color: #5b4f4f;
+    transition: 0s background-color;
     transform: scale(1.01);
   }
 
@@ -183,14 +201,4 @@ const allPosts = await Astro.glob("./blog/*.md");
   .blog-post-link i {
     color: #d3c4b0;
   }
-
-  .blog-post-item:hover .blog-post-link {
-    color: #f0e7d8;
-  }
-
-  .blog-list {
-    margin-left: 25px;
-    margin-right: 50px;
-  }
-
 </style>

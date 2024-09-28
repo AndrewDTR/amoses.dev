@@ -27,4 +27,8 @@ However, the focus in this article is about the two _latest_ iterations of camer
 
 ## &#8220;Is the UPL open right now?&#8221;
 
-I'm sure that any UPL member can testify the horror of arriving to the lab to see a closed door. If you live anywhere off campus, the arduous trek 
+I'm sure that any UPL member can testify the horror of arriving to the lab to see a closed door. If you live anywhere off campus, it's heartbreaking to see your arduous trek to the CS building result in failure.
+
+There's no doubt that as far back as IRC, members of the UPL messaged each other asking if the lab was open. With the advent of mobile phones, it's gotten easier to bother your friends--who may not even be in the room!
+
+Well, myself, in collaboration with other UPL members, decided to fix this issue in, perhaps, the most CS-student-esque way possible: an automated system to identify the exact number of people in the lab.
