@@ -4,6 +4,7 @@ title: "Revamping the UPL's people counter"
 date: "2024-09-28"
 subtitle: "who knew figuring out whether the lab's open would be so much work...?"
 tags: ["python", "opencv", "zigbee", "upl"]
+author: Andrew
 ---
 
 ## A History of UPL's Cameras
@@ -23,7 +24,7 @@ Just _reading_ that makes me stare at the C920 that now sits perched on top of t
 
 I could--and probably will--write an entire other blog post about the intricate history of the UPL, mentioning how [older versions of the website](https://web.archive.org/web/20001003051528/http://www.upl.cs.wisc.edu/uplcam/spincam.html) allowed for users to control the tilt and pan of the camera using four stepper motors attached to the camera.
 
-However, the focus in this article is about the two _latest_ iterations of cameras in the UPL.
+However, the focus of this article is about the two _latest_ iterations of cameras in the UPL.
 
 ## &#8220;Is the UPL open right now?&#8221;
 
@@ -32,3 +33,5 @@ I'm sure that any UPL member can testify the horror of arriving to the lab to se
 There's no doubt that as far back as IRC, members of the UPL messaged each other asking if the lab was open. With the advent of mobile phones, it's gotten easier to bother your friends--who may not even be in the room!
 
 Well, myself, in collaboration with other UPL members, decided to fix this issue in, perhaps, the most CS-student-esque way possible: an automated system to identify the exact number of people in the lab.
+
+(rest of article to come here soon! sorry for the wait!)
