@@ -2,7 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 const hasTags = frontmatter.tags && frontmatter.tags.length > 0;
-const imgLink = `${Astro.site.origin}/og/${Astro.props.post.slug}.png`;
+const imgLink = `${Astro.site.origin}/og/${frontmatter.slug}.png`;
 ---
 
 <BaseLayout imgLink={imgLink}>
