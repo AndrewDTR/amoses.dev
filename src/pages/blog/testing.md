@@ -1,5 +1,5 @@
 ---
-layout: "../layouts/Blog.astro"
+layout: "../../layouts/Blog.astro"
 title: "Testing"
 subtitle: "The entire point of this blog post is to test something"
 author: Andrew
