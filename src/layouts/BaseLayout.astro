@@ -3,7 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 
-const { imgLink } = Astro.props;
+const { imgLink, title, subtitle } = Astro.props;
 ---
 
 <html lang="en">
@@ -17,6 +17,10 @@ const { imgLink } = Astro.props;
     <title>Andrew Moses</title>
 
     {imgLink && <meta property="og:image" content={imgLink} />}
+    {title && <meta property="og:title" content={title} />}
+    {subtitle && <meta property="og:description" content={subtitle} />}
+    <meta property="theme-color" content="#f0e7d8" />
+
   </head>
   <body>
     <div class="page-wrapper">

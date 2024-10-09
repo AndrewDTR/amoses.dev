@@ -4,7 +4,7 @@ title: "Hello World"
 subtitle: "Things I've learned from saying Hello to the world"
 author: Andrew
 tags: ["one", "two", "three"]
-slug: "hello-world"
+slug: "about"
 ---
 
 ![Example image](/og/index.png)

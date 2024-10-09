@@ -5,7 +5,11 @@ const hasTags = frontmatter.tags && frontmatter.tags.length > 0;
 const imgLink = `${Astro.site.origin}/og/${frontmatter.slug}.png`;
 ---
 
-<BaseLayout imgLink={imgLink}>
+<BaseLayout
+  imgLink={imgLink}
+  title={frontmatter.title}
+  subtitle={frontmatter.subtitle}
+>
   <div slot="outside-content" class="top">
     <p class="blog-title">{frontmatter.title}</p>
     <p class="subtitle">{frontmatter.subtitle}</p>
