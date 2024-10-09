@@ -6,6 +6,8 @@ author: Andrew
 tags: ["one", "two", "three"]
 ---
 
+![Example image](/og/index.png)
+
 
 <a href="https://sub.example.com/page">External Link with Subdomain</a><br>
     <a href="https://www.google.com/" target="_blank">Google</a><br>

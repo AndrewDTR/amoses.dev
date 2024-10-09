@@ -2,9 +2,10 @@
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 const hasTags = frontmatter.tags && frontmatter.tags.length > 0;
+const imgLink = `${Astro.site.origin}/og/${Astro.props.post.slug}.png`;
 ---
 
-<BaseLayout>
+<BaseLayout imgLink={imgLink}>
   <div slot="outside-content" class="top">
     <p class="blog-title">{frontmatter.title}</p>
     <p class="subtitle">{frontmatter.subtitle}</p>

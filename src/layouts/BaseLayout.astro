@@ -2,16 +2,21 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
+
+const { imgLink } = Astro.props;
 ---
 
 <html lang="en">
   <head>
+
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/amoses.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charter-webfont@4/charter.min.css" />
     <title>Andrew Moses</title>
+
+    {imgLink && <meta property="og:image" content={imgLink} />}
   </head>
   <body>
     <div class="page-wrapper">
