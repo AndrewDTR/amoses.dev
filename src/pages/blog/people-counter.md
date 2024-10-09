@@ -4,7 +4,8 @@ title: "Revamping the UPL's people counter"
 date: "2024-09-28"
 subtitle: "who knew figuring out whether the lab's open would be so much work...?"
 tags: ["python", "opencv", "zigbee", "upl"]
-author: Andrew
+author: "Andrew"
+slug: "blog/people-counter"
 ---
 
 ## A History of UPL's Cameras
