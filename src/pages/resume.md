@@ -1,7 +1,7 @@
 ---
 title: "Random Testing Page"
 subtitle: "i need to make these because discord's cache holds on for too long"
-layout: "../layouts/BaseLayout.astro"
+layout: "../layouts/Blog.astro"
 ---
 
 # Hello World
