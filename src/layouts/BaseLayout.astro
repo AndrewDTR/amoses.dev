@@ -55,12 +55,12 @@ const { imgLink, title, subtitle } = Astro.props;
         const tooltip = document.getElementById("tooltip");
 
         document.addEventListener("mouseover", function (event) {
-          const target = event.target;
+          const target = event.target as HTMLElement;
           if (target.tagName.toLowerCase() === "a") {
             const href = target.getAttribute("href");
 
             const link = document.createElement("a");
-            link.href = href;
+            link.href = href || "";
 
             if (link.hostname && link.hostname !== location.hostname) {
               const displayHostname = link.hostname.replace(/^www\./, "");
@@ -74,7 +74,8 @@ const { imgLink, title, subtitle } = Astro.props;
         });
 
         document.addEventListener("mouseout", function (event) {
-          if (event.target.tagName.toLowerCase() === "a") {
+          const target = event.target as HTMLElement;
+          if (target.tagName.toLowerCase() === "a") {
             tooltip.style.display = "none";
           }
         });
