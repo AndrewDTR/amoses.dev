@@ -12,10 +12,8 @@ const { imgLink, title, subtitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/amoses.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/charter-webfont@4/charter.min.css"
-    />
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/charter.css" />
     <title>Andrew Moses</title>
 
     {imgLink && <meta property="og:image" content={imgLink} />}
@@ -27,7 +25,6 @@ const { imgLink, title, subtitle } = Astro.props;
       name="twitter:card"
       content="summary_large_image"
     />
-    <!-- <meta property="theme-color" content="#f0e7d8" /> -->
   </head>
   <body>
     <div class="page-wrapper">
@@ -49,47 +46,6 @@ const { imgLink, title, subtitle } = Astro.props;
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     ></script>
     <div id="tooltip" class="tooltip"></div>
-
-    <script>
-      (function () {
-        const tooltip = document.getElementById("tooltip");
-
-        document.addEventListener("mouseover", function (event) {
-          const target = event.target as HTMLElement;
-          if (target.tagName.toLowerCase() === "a") {
-            const href = target.getAttribute("href");
-
-            const link = document.createElement("a");
-            link.href = href || "";
-
-            if (link.hostname && link.hostname !== location.hostname) {
-              const displayHostname = link.hostname.replace(/^www\./, "");
-
-              tooltip.textContent = displayHostname;
-              tooltip.style.display = "block";
-              tooltip.style.left = event.pageX + 10 + "px";
-              tooltip.style.top = event.pageY + 10 + "px";
-            }
-          }
-        });
-
-        document.addEventListener("mouseout", function (event) {
-          const target = event.target as HTMLElement;
-          if (target.tagName.toLowerCase() === "a") {
-            tooltip.style.display = "none";
-          }
-        });
-
-        document.addEventListener("mousemove", function (event) {
-          if (tooltip.style.display === "block") {
-            tooltip.style.left = event.pageX + 3 + "px";
-            tooltip.style.top = event.pageY - 25 + "px";
-          }
-        });
-      })();
-    </script>
-    <script
-      src="https://kit.fontawesome.com/0bc349d89a.js"
-      crossorigin="anonymous"></script>
+    <script src="../scripts/tooltip.js"></script>
   </body>
 </html>
