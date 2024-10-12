@@ -34,4 +34,8 @@ There's no doubt that as far back as IRC, members of the UPL messaged each other
 
 Well, myself, in collaboration with other UPL members, decided to fix this issue in, perhaps, the most CS-student-esque way possible: an automated system to identify the exact number of people in the lab.
 
-(rest of article to come here soon! sorry for the wait!)
+## Switching to door sensing
+
+This worked perfectly for a while -- people would check the Discord channel name and see an estimated count of the number of people in the room. If it said "zero people", they could infer that the UPL wasn't open.
+
+However, this solution started presenting issues. For one, having people in the room didn't necessarily indicate that the UPL was open -- there could be a meeting, or a separate gathering where the doors were closed and people weren't allowed inside. This was confusing to people who might have seen 
