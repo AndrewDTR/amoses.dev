@@ -3,6 +3,7 @@ import expressiveCode from 'astro-expressive-code';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections'
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,7 +30,7 @@ export default defineConfig({
         ],
     },
     integrations: [expressiveCode({
-        plugins: [pluginLineNumbers()],
+        plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
         themes: ["dark-plus"]
     }
     )]

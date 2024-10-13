@@ -136,3 +136,10 @@ blockquote {
 .anchor-link {
   padding-right: 8px;
 }
+
+code {
+  background-color: #414141;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  font-family: monospace;
+}
