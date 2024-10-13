@@ -14,7 +14,7 @@ const { imgLink, title, subtitle } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href="/fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="/charter.css" />
-    <title>Andrew Moses</title>
+    <title>{title ? title : "Andrew Moses"}</title>
 
     {imgLink && <meta property="og:image" content={imgLink} />}
     {title && <meta property="og:title" content={title} />}
