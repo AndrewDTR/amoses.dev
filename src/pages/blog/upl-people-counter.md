@@ -83,13 +83,13 @@ Once the coordinator and sensors arrived, I created a Home Assistant login and i
 <!-- TODO maybe retake these with the a6100 -->
 
 <div style="display: flex; justify-content: center; gap: 5px; max-width: 100%; flex-wrap: wrap; margin-bottom">
-    <figure style="max-width: 250px; text-align: center; margin: 0;">
-        <img src="/images/upl-pc/rpi_wall.png" alt="An image of a Raspberry Pi suspended from a wall with various cables plugged into it. There's a USB stick with an antenna sticking out." style="max-height: 250px; width: auto; max-width: 100%;" />
+    <figure style="max-width: 300px; text-align: center; margin: 0;">
+        <img src="/images/upl-pc/rpi_wall.png" alt="An image of a Raspberry Pi suspended from a wall with various cables plugged into it. There's a USB stick with an antenna sticking out." style="max-height: 300px; width: auto; max-width: 100%;" />
         <figcaption style="font-style: italic; font-size: 0.95em; margin-top: 10px;">Raspberry Pi with Zigbee coordinator</figcaption>
     </figure>
-    <figure style="max-width: 250px; text-align: center; margin: 0;">
-        <img src="/images/upl-pc/sensor_wall.png" alt="An image featuring a door contact sensor. The door is closed, and the sensors are nearly making contact." style="max-height: 250px; width: auto; max-width: 100%;" />
-        <figcaption style="font-style: italic; font-size: 0.95em; margin-top: 10px;">Aqara door contact sensor on door</figcaption>
+    <figure style="max-width: 300px; text-align: center; margin: 0;">
+        <img src="/images/upl-pc/sensor_wall.png" alt="An image featuring a door contact sensor. The door is closed, and the sensors are nearly making contact." style="max-height: 300px; width: auto; max-width: 100%;" />
+        <figcaption style="font-style: italic; font-size: 0.95em; margin-top: 10px;">Aqara door contact sensor on the open door</figcaption>
     </figure>
 </div>
 
