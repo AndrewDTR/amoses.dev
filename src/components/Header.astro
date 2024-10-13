@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 const currentPath = Astro.url.pathname;
+// remove leading or trailing slashes
+const fixedPath = currentPath.replace(/^\/|\/$/g, "");
 ---
 
 <div class="header-container">
@@ -34,13 +36,8 @@ const currentPath = Astro.url.pathname;
       </svg>
       <b class="no-underline">Andrew Moses</b>
     </a>
-    <a class={currentPath === "/blog" ? "nav bold" : "nav"} href="/blog">Blog</a
-    >
+    <a class={`nav ${fixedPath === "blog" ? "bold" : ""}`} href="/blog">Blog</a>
     <a class="nav" href="/resume.pdf">Resume</a>
-    <!-- <a class={currentPath === "/about" ? "nav bold" : "nav"} href="/about">About</a> -->
-    <!-- <a class={currentPath === "/projects" ? "nav bold" : "nav"} href="/projects"
-      >Projects</a
-    > -->
   </div>
   <div class="icons">
     <a
