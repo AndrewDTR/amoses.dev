@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # obsidian
 .obsidian/
+
+# until i finish
+ics-schedule-generator.md
