@@ -5,6 +5,12 @@
   line-height: 1.2;
 }
 
+/* reserves the space that'll appear if there WAS a sidebar. stops everything from shifting when a scrollbar appears */
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto;
