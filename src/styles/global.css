@@ -2,6 +2,7 @@
   font-family: "Charter", sans-serif;
   color: #f0e7d8;
   scroll-behavior: smooth;
+  line-height: 1.2;
 }
 
 @media (prefers-reduced-motion: reduce) {
