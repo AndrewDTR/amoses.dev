@@ -80,8 +80,6 @@ I decided to use [these Aqara door and window sensors](https://www.amazon.com/Aq
 
 Once the coordinator and sensors arrived, I created a Home Assistant login and installed the ZHA integration. Pairing simply required holding the "reset" button on the sensors until Home Assistant recognized them and added the corresponding entities in the dashboard.
 
-<!-- TODO maybe retake these with the a6100 -->
-
 <div style="display: flex; justify-content: center; gap: 5px; max-width: 100%; flex-wrap: wrap; margin-bottom">
     <figure style="max-width: 300px; text-align: center; margin: 0;">
         <img src="/images/upl-pc/rpi_wall.png" alt="An image of a Raspberry Pi suspended from a wall with various cables plugged into it. There's a USB stick with an antenna sticking out." style="max-height: 300px; width: auto; max-width: 100%;" />
@@ -138,7 +136,7 @@ rest_command:
 
 ...but I very quickly realized that this solution wasn't the best. For one, when I published [the source code](https://github.com/UW-UPL/people-counter-v2/blob/main/home-assistant/configuration.yaml) onto GitHub, some very funny students decided that they would manually simulate the POST requests and change the status of the doors to be inaccurate. That's what I get for leaving the endpoint unsecured![^3]
 
-I eventually learned that Home Assistant provides a [RESTful API](https://developers.home-assistant.io/docs/api/rest/) directly alongside the web dashboard. All it took was appending an `/api/` route to the HA URL. I could just use that!
+I eventually learned that Home Assistant provides a [RESTful API](https://developers.home-assistant.io/docs/api/rest/) directly alongside the web dashboard. If I set that up, I would be able to query the instance for the states of the connected devices.[^4] All it took was appending an `/api/` route to the HA URL. I could just use that!
 
 The API has all of its routes authenticated with a bearer token (to most likely mirror the permissions of the frontend, which requires a user login before showing any data). Given that I wanted to display the door status on the UPL's page, I realized the potential danger in shipping the bearer token with the site. Any crafty user could take it and access any other route on Home Assistant's API. Given the level of information and control available on HA instances, this could be disastrous.
 
@@ -246,3 +244,5 @@ I'm pretty happy with how this project turned out. It's been really fun developi
 [^2]: If you've ever lived in the UW dorms, you'll know all too well what I'm talking about. Every device without browser access needs to have its MAC address whitelisted by the network system. This authorization expires in six months, so you'll lose internet access and have to renew.
 
 [^3]: Before you try, these endpoints aren't in use anymore. :P
+
+[^4]: Keen eyed readers might be asking "what about the AP isolation issue that you just mentioned?!". Well, I found a fantastic addon for Home Assistant that allows you to access your dashboard (and the API, by extension) when not on the LAN of the pi. It uses Cloudflare tunnels, and you can find [its GitHub repository here.](https://github.com/brenner-tobias/addon-cloudflared)
