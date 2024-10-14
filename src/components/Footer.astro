@@ -14,6 +14,11 @@ const currentYear = new Date().getFullYear();
     <p>&copy; {currentYear} Andrew Moses</p>
   </div>
   <div class="footer-right">
+    <div class="rss" style="margin-right: 15px;">
+      <a href="/rss.xml" target="_blank">
+        <i class="fa-solid fa-square-rss fa-lg"></i>
+      </a>
+    </div>
     <div class="footer-section">
       <p class="made-with-love">Made with &lt;3</p>
     </div>
@@ -106,6 +111,10 @@ const currentYear = new Date().getFullYear();
 
     .commit-hash {
       word-break: break-all;
+    }
+
+    .rss {    
+      display: none;
     }
   }
 </style>
