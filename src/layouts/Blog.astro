@@ -26,7 +26,7 @@ const imgLink = `${Astro.site.origin}/og${Astro.url.pathname.replace(/\/$/, "")}
           <i class="fa-solid fa-tag fa-sm" style="padding-right: 2px;" />
           Tags:
           {frontmatter.tags.map((tag) => (
-            <code>{tag}</code>
+            <a href={`/tags/${tag}`}><code>{tag}</code></a>
           ))}
         </p>
       )

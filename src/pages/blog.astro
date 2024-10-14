@@ -26,7 +26,7 @@ const sortedKeys = Object.keys(groupedPosts).sort(
 ); // Sort keys in reverse order
 ---
 
-<BaseLayout>
+<BaseLayout title="Blog Posts">
   {
     sortedKeys.map((key) => {
       const [year, month] = key.split("-");

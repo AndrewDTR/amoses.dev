@@ -1,0 +1,111 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+export interface Props {
+  tag: string;
+  posts: any[];
+}
+
+const { tag, posts } = Astro.props;
+
+const title = tag;
+---
+
+<BaseLayout
+  title={`Tagged "${title.charAt(0).toUpperCase() + title.slice(1)}"`}
+>
+  <main class="container">
+    <h1>Posts tagged "{tag}"</h1>
+    <ul class="post-list">
+      {
+        posts.map((post) => (
+          <li class="post-element">
+            <a href={post.url}>
+              <h2 class="lower">{post.frontmatter.title}</h2>
+              <!-- Added 'subtitle' class here -->
+              <i class="lower subtitle">{post.frontmatter.subtitle}</i>
+              <div class="post-meta">
+                <i
+                  class="fa-regular fa-calendar fa-sm"
+                  style="padding-right: 2px; text-decoration: none;"
+                />{" "}
+                {post.frontmatter.date}
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <a href="/blog" class="back-link">← Back to all posts</a>
+  </main>
+
+  <style>
+    .lower {
+      line-height: 1;
+      margin-top: 0;
+      margin-bottom: 7px;
+    }
+
+    .post-element {
+      margin-bottom: 25px;
+    }
+
+    .post-element a {
+      display: block;
+      color: #f0e7d8;
+      text-decoration: none;
+      transition: color 0.2s;
+      padding: 10px;
+    }
+
+    .post-element a h2 {
+      text-decoration: underline;
+      transition: color 0.2s;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .post-element a i.subtitle {
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .post-element a .post-meta {
+      margin-top: 10px;
+    }
+
+    .post-element a:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #ffaaaa;
+    }
+
+    .post-element a:hover h2,
+    .post-element a:hover i,
+    .post-element a:hover .post-meta,
+    .post-element a:hover .post-meta i {
+      color: #ffaaaa;
+    }
+
+    .post-element a:hover h2 {
+      text-decoration: underline;
+    }
+
+    .post-element a h2,
+    .post-element a i,
+    .post-element a .post-meta,
+    .post-element a .post-meta i {
+      transition: color 0.2s;
+    }
+
+    .back-link {
+      color: #f0e7d8;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+      color: #ffaaaa;
+    }
+  </style>
+</BaseLayout>
