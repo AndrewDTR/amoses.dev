@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await Astro.glob("./blog/*.md");
 
 allPosts.sort(
-  (a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
+  (a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)
 );
 ---
 
@@ -61,7 +61,7 @@ allPosts.sort(
                 <li class="blog-post-item">
                   {post.frontmatter.title} -{" "}
                   <i>
-                    {post.frontmatter.subtitle} | {post.frontmatter.date}
+                    {post.frontmatter.subtitle} | {post.frontmatter.pubDate}
                   </i>
                 </li>
               </a>
