@@ -8,5 +8,6 @@ export async function GET(context) {
         items: await pagesGlobToRssItems(
             import.meta.glob('./blog/*.{md,mdx}'),
         ),
+        stylesheet: '/rss/styles.xsl',
     });
 }
