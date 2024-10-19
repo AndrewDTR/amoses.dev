@@ -9,11 +9,11 @@ author: "Andrew"
 
 ## A History of UPL's Cameras
 
-For almost as long as [the Undergraduate Projects Lab](https://www.upl.cs.wisc.edu) has existed, there's been a camera of some sort peering at the room. There's evidence of a system existing even as far back as the 1990s, with a [prehistoric revision of the site](https://web.archive.org/web/19981202092257/http://www.upl.cs.wisc.edu/cgi-bin/uplcam.html) mentioning that an old iteration was:
+For almost as long as [the Undergraduate Projects Lab](https://www.upl.cs.wisc.edu) at the University of Wisconsin has existed, there's been a camera of some sort peering at the room. There's evidence of a system existing even as far back as the 1990s, with a [prehistoric revision of the site](https://web.archive.org/web/19981202092257/http://www.upl.cs.wisc.edu/cgi-bin/uplcam.html) mentioning that an old iteration was:
 
 > ...a $15 video camera attached to the wall with duct tape, connected to a VCR, connected to a video spigot in a Mac IIcx, running Timed Video Grabber (TVG), and FTPd. Dax, an HP workstation ran a script that would try to FTP the latest image every 60 seconds. Because the clocks would drift, occasionally, the file accesses would collide, and the whole scheme would break.
 
-Just _reading_ that makes me stare at the C920 that now sits perched on top of the arcade cabinet with wonder. What used to be several thousand dollars of equipment is now achievable (with immeasurably better quality) with a $50 webcam plugged into a Raspberry Pi.
+Just _reading_ that makes me stare at the camera that now sits perched on top of the arcade cabinet with wonder. What used to be several thousand dollars of equipment is now achievable (with immeasurably better quality) with a $50 webcam plugged into a Raspberry Pi.
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
     <img src="/images/upl-pc/old_upl.png" alt="A grainy image featuring an interior view of the UPL, a triangular-shaped undergraduate lab at UW-Madison." style="max-height: 250px; width: auto; max-width: 100%;" />
@@ -36,9 +36,21 @@ Well, myself, in collaboration with other UPL members, decided to fix this issue
 
 ## People counting
 
-<!-- TODO -->
+The people counting solution utilized a Logitech C920 camera mounted on a vantage point that had a clear view of the room. A Discord bot was set on a 15 minute loop (using discord.py.ext's `@tasks.loop(minutes=15)`) to call a YOLOv7 model set to class 0 (detecting people). The bot calls the webcam to take an image, then runs it through the model for inference. It returns the number of people in the room (and annotates the image with bounding boxes of where it believes the people to be, for debug purposes).
 
-TODO
+<div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
+    <img src="/images/upl-pc/camera-peek.png" alt="An image of a webcam peeking out at an occupied lab." style="max-width: 350px; width: auto;" />
+</div>
+
+<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">Don't pay the tape any mind.</i>
+
+It then set the name of a Discord channel to the expected results (either `1-person-in-upl` or `X-people-in-upl`), which others could check.
+
+<div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
+    <img src="/images/upl-pc/8-people-in-upl.png" alt="A channel in the UPL Discord reads '8 people in UPL'." style="max-width: 350px; width: auto;" />
+</div>
+
+<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">An example of what the Discord looked like on a day with a semi-busy UPL</i>
 
 ## Switching to door sensing
 
@@ -86,7 +98,7 @@ Once the coordinator and sensors arrived, I created a Home Assistant login and i
         <figcaption style="font-style: italic; font-size: 0.95em; margin-top: 10px;">Raspberry Pi with Zigbee coordinator</figcaption>
     </figure>
     <figure style="max-width: 300px; text-align: center; margin: 0;">
-        <img src="/images/upl-pc/sensor_wall.png" alt="An image featuring a door contact sensor. The door is closed, and the sensors are nearly making contact." style="max-height: 300px; width: auto; max-width: 100%;" />
+        <img src="/images/upl-pc/sensor_wall.png" alt="An image featuring a door contact sensor. The door is cracked open, and the sensors are nearly making contact." style="max-height: 300px; width: auto; max-width: 100%;" />
         <figcaption style="font-style: italic; font-size: 0.95em; margin-top: 10px;">Aqara door contact sensor on the open door</figcaption>
     </figure>
 </div>
@@ -94,6 +106,14 @@ Once the coordinator and sensors arrived, I created a Home Assistant login and i
 ## Using the door statuses
 
 Once this was all configured, I had the live statuses of the doors through the Home Assistant dashboard! I'm not going to lie, it was really fun opening and closing the doors repeatedly and seeing the dashboard change in real-time (even if the rest of the UPL members probably thought I was crazy).
+
+<div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom: 0;">
+    <video src="/images/upl-pc/doors.mp4" controls style="max-height: 250px;">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">It's so satisfying to watch this happen in real-time.[^3]</i>
 
 An important thing to note here is that UWNet provides total access point isolation. None of the devices on the network can see any of the others (for good reason, as it would be a huge security vulnerability for any devices with open ports). If this wasn't a limitation, I would just have the website directly query the rpi.
 
@@ -134,9 +154,9 @@ rest_command:
     content_type: "application/json; charset=utf-8"
 ```
 
-...but I very quickly realized that this solution wasn't the best. For one, when I published [the source code](https://github.com/UW-UPL/people-counter-v2/blob/main/home-assistant/configuration.yaml) onto GitHub, some very funny students decided that they would manually simulate the POST requests and change the status of the doors to be inaccurate. That's what I get for leaving the endpoint unsecured![^3]
+...but I very quickly realized that this solution wasn't the best. For one, when I published [the source code](https://github.com/UW-UPL/people-counter-v2/blob/main/home-assistant/configuration.yaml) onto GitHub, some very funny students decided that they would manually simulate the POST requests and change the status of the doors to be inaccurate. That's what I get for leaving the endpoint unsecured![^4]
 
-I eventually learned that Home Assistant provides a [RESTful API](https://developers.home-assistant.io/docs/api/rest/) directly alongside the web dashboard. If I set that up, I would be able to query the instance for the states of the connected devices.[^4] All it took was appending an `/api/` route to the HA URL. I could just use that!
+I eventually learned that Home Assistant provides a [RESTful API](https://developers.home-assistant.io/docs/api/rest/) directly alongside the web dashboard. If I set that up, I would be able to query the instance for the states of the connected devices.[^5] All it took was appending an `/api/` route to the HA URL. I could just use that!
 
 The API has all of its routes authenticated with a bearer token (to most likely mirror the permissions of the frontend, which requires a user login before showing any data). Given that I wanted to display the door status on the UPL's page, I realized the potential danger in shipping the bearer token with the site. Any crafty user could take it and access any other route on Home Assistant's API. Given the level of information and control available on HA instances, this could be disastrous.
 
@@ -198,7 +218,7 @@ app.listen(PORT, () => {
 });
 ```
 
-Now, the server will query the Home Assistant's API on your behalf, with the proper bearer token. It'll return a JSON object of the door statuses and their last change:
+Now, the server will query Home Assistant's API on your behalf (with the proper bearer token). It'll return a JSON object of the door statuses and their last change, like so:
 
 ```json showLineNumbers=false
 [
@@ -243,6 +263,8 @@ I'm pretty happy with how this project turned out. It's been really fun developi
 
 [^2]: If you've ever lived in the UW dorms, you'll know all too well what I'm talking about. Every device without browser access needs to have its MAC address whitelisted by the network system. This authorization expires in six months, so you'll lose internet access and have to renew.
 
-[^3]: Before you try, these endpoints aren't in use anymore. :P
+[^3]: The UPL has a front and back entrance, hence the wording being "doors" instead of "door".
 
-[^4]: Keen eyed readers might be asking "what about the AP isolation issue that you just mentioned?!". Well, I found a fantastic addon for Home Assistant that allows you to access your dashboard (and the API, by extension) when not on the LAN of the pi. It uses Cloudflare tunnels, and you can find [its GitHub repository here.](https://github.com/brenner-tobias/addon-cloudflared)
+[^4]: Before you try, these endpoints aren't in use anymore. :P
+
+[^5]: Keen eyed readers might be asking "what about the AP isolation issue that you just mentioned?!". Well, I found a fantastic addon for Home Assistant that allows you to access your dashboard (and the API, by extension) when not on the LAN of the pi. It uses Cloudflare tunnels, and you can find [its GitHub repository here.](https://github.com/brenner-tobias/addon-cloudflared)
