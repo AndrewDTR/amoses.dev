@@ -149,3 +149,9 @@ code {
   border-radius: 4px;
   font-family: monospace;
 }
+
+.actual-content img,
+.actual-content video {
+  border: 1px solid #f0e7d8;
+  padding: 5px;
+}

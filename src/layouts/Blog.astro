@@ -37,7 +37,9 @@ const imgLink = `${Astro.site.origin}/og${Astro.url.pathname.replace(/\/$/, "")}
     <hr class="custom-hr" style="margin-top: 25px;" />
   </div>
 
-  <slot />
+  <div class="actual-content">
+    <slot />
+  </div>
 
   <style>
     .blog-title {
