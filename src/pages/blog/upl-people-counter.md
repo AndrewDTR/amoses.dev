@@ -32,11 +32,11 @@ I'm sure that any UPL member can testify the horror of arriving to the lab to se
 
 There's no doubt that as far back as IRC, members of the UPL messaged each other asking if the lab was open. With the advent of mobile phones, it's gotten easier to bother your friends--who may not even be in the room!
 
-Well, myself, in collaboration with other UPL members, decided to fix this issue in, perhaps, the most CS-student-esque way possible: an automated system to identify the exact number of people in the lab.
+Well, myself, in collaboration with other UPL members, decided to fix this issue in, perhaps, the most CS-student-esque way possible: an automated system to identify the occupancy of the lab.
 
 ## People counting
 
-The people counting solution utilized a Logitech C920 camera mounted on a vantage point that had a clear view of the room. A Discord bot was set on a 15 minute loop (using discord.py.ext's `@tasks.loop(minutes=15)`) to call a YOLOv7 model set to class 0 (detecting people). The bot calls the webcam to take an image, then runs it through the model for inference. It returns the number of people in the room (and annotates the image with bounding boxes of where it believes the people to be, for debug purposes).
+The initial (and naive) people counting solution utilized a Logitech C920 camera mounted on a vantage point that had a clear view of the room. A Discord bot was set on a 15 minute loop (using discord.py.ext's `@tasks.loop(minutes=15)`) to call a YOLOv7 model set to class 0 (detecting people). The bot called the webcam to take an image, then ran it through the model for inference. It returned the number of people in the room (and annotated the image with bounding boxes of where it believed the people to be, for debug purposes).
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
     <img src="/images/upl-pc/camera-peek.png" alt="An image of a webcam peeking out at an occupied lab." style="max-width: 350px; width: auto;" />
@@ -44,13 +44,13 @@ The people counting solution utilized a Logitech C920 camera mounted on a vantag
 
 <i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">Don't pay the tape any mind.</i>
 
-It then set the name of a Discord channel to the expected results (either `1-person-in-upl` or `X-people-in-upl`), which others could check.
+It then set the name of a channel to the results (either `1-person-in-upl` or `X-people-in-upl`), which others could check.
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
     <img src="/images/upl-pc/8-people-in-upl.png" alt="A channel in the UPL Discord reads '8 people in UPL'." style="max-width: 350px; width: auto;" />
 </div>
 
-<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">An example of what the Discord looked like on a day with a semi-busy UPL</i>
+<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">An example of what the Discord looked like on a day with a semi-busy UPL.</i>
 
 ## Switching to door sensing
 
@@ -92,7 +92,7 @@ I decided to use [these Aqara door and window sensors](https://www.amazon.com/Aq
 
 Once the coordinator and sensors arrived, I created a Home Assistant login and installed the ZHA integration. Pairing simply required holding the "reset" button on the sensors until Home Assistant recognized them and added the corresponding entities in the dashboard.
 
-<div style="display: flex; justify-content: center; gap: 5px; max-width: 100%; flex-wrap: wrap; margin-bottom">
+<div style="display: flex; justify-content: center; gap: 12px; max-width: 100%; flex-wrap: wrap; margin-bottom">
     <figure style="max-width: 300px; text-align: center; margin: 0;">
         <img src="/images/upl-pc/rpi_wall.png" alt="An image of a Raspberry Pi suspended from a wall with various cables plugged into it. There's a USB stick with an antenna sticking out." style="max-height: 300px; width: auto; max-width: 100%;" />
         <figcaption style="font-style: italic; font-size: 0.95em; margin-top: 10px;">Raspberry Pi with Zigbee coordinator</figcaption>

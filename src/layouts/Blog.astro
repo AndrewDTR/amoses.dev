@@ -26,7 +26,9 @@ const imgLink = `${Astro.site.origin}/og${Astro.url.pathname.replace(/\/$/, "")}
           <i class="fa-solid fa-tag fa-sm" style="padding-right: 2px;" />
           Tags:
           {frontmatter.tags.map((tag) => (
-            <a href={`/tags/${tag}`}><code>{tag}</code></a>
+            <a href={`/tags/${tag}`}>
+              <code>{tag}</code>
+            </a>
           ))}
         </p>
       )
@@ -80,6 +82,12 @@ const imgLink = `${Astro.site.origin}/og${Astro.url.pathname.replace(/\/$/, "")}
 
     .top {
       left-margin: 20px;
+    }
+
+    img,
+    video {
+      border: 1px solid #f0e7d8;
+      padding: 5px;
     }
   </style>
 </BaseLayout>

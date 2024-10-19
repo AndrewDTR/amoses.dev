@@ -10,7 +10,6 @@ html {
   scrollbar-gutter: stable both-edges;
 }
 
-
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto;
