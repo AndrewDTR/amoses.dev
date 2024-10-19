@@ -84,7 +84,7 @@ There are plenty of devices that track the status of doors, made by companies li
 
 ## Zigbee!
 
-Enter Zigbee. It's a low-rate mesh wireless protocol that allows for smart devices to communicate over a personal area network. A benefit of this is that you're able to use one hub to communicate with a variety of devices, even those made by different manufacturers. Instead of searching for a particular brand for the door contact sensors, I would just have to find ones that support the Zigbee protocol. Then I would be able to view their status through Home Assistant's dashboard.
+Enter Zigbee. It's a low-rate mesh wireless protocol that allows for smart devices to communicate over a personal area network. A benefit of this is that you're able to use one hub to communicate with a variety of devices, even those made by different manufacturers. Instead of searching for a particular brand for the door contact sensors, I would just have to find ones that supported the Zigbee protocol. Then I would be able to view their status through Home Assistant's dashboard.
 
 It's important to note that Zigbee radios operate independently from WiFi or Bluetooth antennas. If you want to interface with Zigbee devices, you'll have to pick up a special receiver that can support the protocol. For this project, I picked up [this one](https://www.amazon.com/SONOFF-Universal-Assistant-Zigbee2MQTT-Wireless/dp/B0B6P22YJC/) made by SONOFF. Home Assistant's Zigbee integration is called [Zigbee Home Automation](https://www.home-assistant.io/integrations/zha/), and it supports a variety of Zigbee coordinators (the USB dongles that allow for connections). When you use this integration, Home Assistant automatically creates a Zigbee network that the devices can join.
 
@@ -108,9 +108,9 @@ Once the coordinator and sensors arrived, I created a Home Assistant login and i
 Once this was all configured, I had the live statuses of the doors through the Home Assistant dashboard! I'm not going to lie, it was really fun opening and closing the doors repeatedly and seeing the dashboard change in real-time (even if passerby in the CS building probably thought I was crazy).
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom: 0;">
-    <video src="/images/upl-pc/doors.mp4" controls style="max-height: 250px;">
-        Your browser does not support the video tag.
-    </video>
+    <video src="/images/upl-pc/doors.mp4" controls style="max-height: 250px; width: auto; max-width: 100%; height: auto;">
+    Your browser does not support the video tag.
+</video>
 </div>
 
 <i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">It's so satisfying to watch this happen in real-time.[^3]</i>
@@ -220,7 +220,7 @@ app.listen(PORT, () => {
 
 Now, the server will query Home Assistant's API on your behalf (with the proper bearer token). It'll return a JSON object of the door statuses and their last change, like so:
 
-```json showLineNumbers=false
+```json title="response.json" showLineNumbers=false
 [
   {
     "door": "back",
