@@ -20,7 +20,7 @@ Just _reading_ that makes me stare at the camera that now sits perched on top of
     <img src="/images/upl-pc/new_upl.jpeg" alt="An image featuring the interior of the UPL, a lab at UW-Madison. Students sit at laptops." style="max-height: 250px; width: auto; max-width: 100%;" />
 </div>
 
-<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">Taken ~25 years apart</i>
+<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">Taken ~25 years apart.</i>
 
 I could--and probably will--write an entire other blog post about the intricate history of the UPL, mentioning how [older versions of the website](https://web.archive.org/web/20001003051528/http://www.upl.cs.wisc.edu/uplcam/spincam.html) allowed for users to control the tilt and pan of the camera using four stepper motors attached to the camera.
 
@@ -39,10 +39,11 @@ Well, myself, in collaboration with other UPL members, decided to fix this issue
 The first iteration of the people counting system (as built by [Michael Berkey](https://github.com/mdberkey)) utilized a Logitech C920 camera mounted on a vantage point that had a clear view of the room. A Discord bot was set on a 15 minute loop (using discord.py.ext's `@tasks.loop(minutes=15)`) to call a YOLOv7 model set to class 0 (detecting people). The bot called the webcam to take an image, then ran it through the model for inference. It returned the number of people in the room (and annotated the image with bounding boxes of where it believed the people to be, for debug purposes).
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
-    <img src="/images/upl-pc/camera-peek.png" alt="An image of a webcam peeking out at an occupied lab." style="max-width: 350px; width: auto;" />
+    <img src="/images/upl-pc/camera-over.png" alt="The front side of a C920 webcam." style="max-height: 200px; width: auto; max-width: 100%;" />
+    <img src="/images/upl-pc/camera-peek.png" alt="The back side of a C920 webcam." style="max-height: 200px; width: auto; max-width: 100%;" />
 </div>
 
-<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">Don't pay the tape any mind.</i>
+<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">...don't mind the tape.</i>
 
 It then set the name of a channel to the results (either `1-person-in-upl` or `X-people-in-upl`), which others could check.
 
@@ -64,7 +65,7 @@ There was also the issue of the model sometimes interpreting the chair in the co
     <img src="/images/upl-pc/upl_empty.png" alt="An image of the empty lab. An annotation on a brown armchair reads 'Person 0', despite no human on the chair." style="max-height: 250px; width: auto; max-width: 100%;" />
 </div>
 
-<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">Either the model is too sensitive or the UPL has a friendly ghost</i>
+<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">Either the model is too sensitive, or the UPL has a friendly ghost!</i>
 
 It was around this time that I stumbled upon the homepage of [MITERS](https://miters.mit.edu/), a makerspace at MIT. On their website, they broadcast whether the door to the space is open using a reed switch attached to a Raspberry Pi. Reed switches are small, physical components that are able to detect a magnetic field. If you put one on a doorframe, and then attach a tiny magnet to the door itself, you have an effective way of detecting whether a door is open or closed! I was able to find [a writeup](https://andrewbirkel.com/projects/MITERS_Door.html) by a former member of the space on their implementation, but I can't guarantee that it's accurate to how it's set up there currently.
 
@@ -241,13 +242,13 @@ Now, the server will query Home Assistant's API on your behalf (with the proper 
     <img src="/images/upl-pc/open_door.png" alt="The UPL website reads 'the doors are open!' with an icon of an open door." style="max-width: 350px; width: auto;" />
 </div>
 
-<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">The UPL website uses a header component which fetches the door status every 15 seconds</i>
+<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">The UPL website uses a header component which fetches the door status every 15 seconds.</i>
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
     <img src="/images/upl-pc/upl_discord.png" alt="A channel in the UPL Discord reads 'UPL doors open'." style="max-width: 350px; width: auto;" />
 </div>
 
-<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">The Discord channel name is an easy way to see the status without opening the site</i>
+<i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">The Discord channel name is an easy way to see the status without opening the site.</i>
 
 ## Conclusion
 
