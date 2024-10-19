@@ -36,7 +36,7 @@ Well, myself, in collaboration with other UPL members, decided to fix this issue
 
 ## People counting
 
-The initial (and naive) people counting solution utilized a Logitech C920 camera mounted on a vantage point that had a clear view of the room. A Discord bot was set on a 15 minute loop (using discord.py.ext's `@tasks.loop(minutes=15)`) to call a YOLOv7 model set to class 0 (detecting people). The bot called the webcam to take an image, then ran it through the model for inference. It returned the number of people in the room (and annotated the image with bounding boxes of where it believed the people to be, for debug purposes).
+The first iteration of the people counting system (as built by [Michael Berkey](https://github.com/mdberkey)) utilized a Logitech C920 camera mounted on a vantage point that had a clear view of the room. A Discord bot was set on a 15 minute loop (using discord.py.ext's `@tasks.loop(minutes=15)`) to call a YOLOv7 model set to class 0 (detecting people). The bot called the webcam to take an image, then ran it through the model for inference. It returned the number of people in the room (and annotated the image with bounding boxes of where it believed the people to be, for debug purposes).
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
     <img src="/images/upl-pc/camera-peek.png" alt="An image of a webcam peeking out at an occupied lab." style="max-width: 350px; width: auto;" />
@@ -105,7 +105,7 @@ Once the coordinator and sensors arrived, I created a Home Assistant login and i
 
 ## Using the door statuses
 
-Once this was all configured, I had the live statuses of the doors through the Home Assistant dashboard! I'm not going to lie, it was really fun opening and closing the doors repeatedly and seeing the dashboard change in real-time (even if the rest of the UPL members probably thought I was crazy).
+Once this was all configured, I had the live statuses of the doors through the Home Assistant dashboard! I'm not going to lie, it was really fun opening and closing the doors repeatedly and seeing the dashboard change in real-time (even if passerby in the CS building probably thought I was crazy).
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom: 0;">
     <video src="/images/upl-pc/doors.mp4" controls style="max-height: 250px;">
