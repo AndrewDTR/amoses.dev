@@ -142,21 +142,28 @@ const fixedPath = currentPath.replace(/^\/|\/$/g, "");
     fill: #ffaaaa;
   }
 
-  @media (max-width: 680px) {
+  @media (max-width: 700px) {
     .header-container {
       flex-wrap: wrap;
       height: auto;
-      padding: 10px 15px;
-    }
-
-    .words,
-    .icons {
-      width: 100%;
-      justify-content: center;
+      padding: 15px;
+      align-items: center;
+      flex-direction: column;
     }
 
     .words {
-      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
     }
 
     .nav {
@@ -164,13 +171,19 @@ const fixedPath = currentPath.replace(/^\/|\/$/g, "");
       margin-right: 10px;
     }
 
-    svg {
+    .icons svg {
       display: none;
     }
 
     .icons a {
       margin-left: 10px;
       margin-right: 10px;
+    }
+  }
+
+  @media (max-width: 460px) {
+    .name svg {
+      display: none;
     }
   }
 

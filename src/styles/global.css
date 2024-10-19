@@ -155,3 +155,7 @@ code {
   border: 1px solid #f0e7d8;
   padding: 5px;
 }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
