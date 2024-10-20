@@ -2,7 +2,7 @@
 layout: "../../layouts/Blog.astro"
 title: "Revamping the UPL's people counter"
 pubDate: "2024-10-14"
-subtitle: "who knew figuring out whether the lab's open would be so much work...?"
+subtitle: "who knew figuring out the lab's occupancy would be so much work?!"
 tags: ["projects", "python", "js", "upl"]
 author: "Andrew"
 ---
