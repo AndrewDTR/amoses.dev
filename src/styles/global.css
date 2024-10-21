@@ -152,8 +152,13 @@ code {
 
 .actual-content img,
 .actual-content video {
-  border: 1px solid #f0e7d8;
+  border: 1px solid #cfbe9b;
   padding: 5px;
+  transition: border 0.2s;
+}
+
+.actual-content img:hover {
+  border: 1px solid #f1e9d8;
 }
 
 *, *::before, *::after {
