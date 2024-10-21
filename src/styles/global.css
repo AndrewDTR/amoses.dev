@@ -157,10 +157,12 @@ code {
   transition: border 0.2s;
 }
 
-.actual-content img:hover {
+.actual-content img:hover .actual-content video:hover {
   border: 1px solid #f1e9d8;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
