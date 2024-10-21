@@ -5,6 +5,8 @@ pubDate: "2024-10-14"
 subtitle: "who knew figuring out the lab's occupancy would be so much work?!"
 tags: ["projects", "python", "js", "upl"]
 author: "Andrew"
+discussion: "Hacker News"
+discussion_link: "https://news.ycombinator.com/item?id=41907360"
 ---
 
 ## A History of UPL's Cameras

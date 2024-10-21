@@ -3,6 +3,7 @@ import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 const hasTags = frontmatter.tags && frontmatter.tags.length > 0;
 const imgLink = `${Astro.site.origin}/og${Astro.url.pathname.replace(/\/$/, "")}.png`;
+const hasDiscussion = frontmatter.discussion && frontmatter.discussion_link;
 ---
 
 <BaseLayout
@@ -30,6 +31,18 @@ const imgLink = `${Astro.site.origin}/og${Astro.url.pathname.replace(/\/$/, "")}
               <code class="tag-code">{tag}</code>
             </a>
           ))}
+        </p>
+      )
+    }
+
+    {
+      hasDiscussion && (
+        <p class="discussion">
+          <i class="fa-solid fa-comment" />
+          Discussion:
+          <a href={frontmatter.discussion_link} class="discussion-link">
+            {frontmatter.discussion}
+          </a>
         </p>
       )
     }
@@ -75,6 +88,7 @@ const imgLink = `${Astro.site.origin}/og${Astro.url.pathname.replace(/\/$/, "")}
 
     .tags {
       margin-top: 3px;
+      margin-bottom: 0px;
     }
 
     .content {
@@ -96,6 +110,10 @@ const imgLink = `${Astro.site.origin}/og${Astro.url.pathname.replace(/\/$/, "")}
 
     .tag-code:hover {
       background-color: #555f6a;
+    }
+
+    .discussion {
+      margin-top: 4px;
     }
   </style>
 </BaseLayout>
