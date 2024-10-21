@@ -27,7 +27,7 @@ const imgLink = `${Astro.site.origin}/og${Astro.url.pathname.replace(/\/$/, "")}
           Tags:
           {frontmatter.tags.map((tag) => (
             <a href={`/tags/${tag}`}>
-              <code>{tag}</code>
+              <code class="tag-code">{tag}</code>
             </a>
           ))}
         </p>
@@ -94,6 +94,14 @@ const imgLink = `${Astro.site.origin}/og${Astro.url.pathname.replace(/\/$/, "")}
 
     .tags a {
       text-decoration: none;
+    }
+
+    .tag-code {
+      transition: background-color 0.2s;
+    }
+
+    .tag-code:hover {
+      background-color: #555f6a;
     }
   </style>
 </BaseLayout>
