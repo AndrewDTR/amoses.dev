@@ -1,7 +1,6 @@
 import { OGImageRoute } from "astro-og-canvas";
 
 const pages = await import.meta.glob("/src/pages/**/*.md", { eager: true });
-console.log(pages);
 
 export const { getStaticPaths, GET } = OGImageRoute({
   param: "route",
