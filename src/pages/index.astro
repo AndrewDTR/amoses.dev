@@ -64,6 +64,9 @@ allPosts.sort(
             allPosts.slice(0, 3).map((post) => (
               <a href={post.url} class="blog-post-link">
                 <li class="blog-post-item">
+                  {post.frontmatter.bestof && (
+                    <i class="fa fa-star" style="padding-right: 2px;" />
+                  )}
                   {post.frontmatter.title} -{" "}
                   <i>
                     {post.frontmatter.subtitle} | {post.frontmatter.pubDate}

@@ -8,7 +8,7 @@ function groupPostsByYearAndMonth(posts) {
   posts.forEach((post) => {
     const date = new Date(post.frontmatter.pubDate);
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, "0");
 
     const key = `${year}-${month}`;
     if (!grouped[key]) {
@@ -23,33 +23,42 @@ function groupPostsByYearAndMonth(posts) {
 const groupedPosts = groupPostsByYearAndMonth(allPosts);
 
 const sortedKeys = Object.keys(groupedPosts).sort(
-  (a, b) => new Date(b + '-01') - new Date(a + '-01')
+  (a, b) => new Date(b + "-01") - new Date(a + "-01")
 );
 ---
 
 <BaseLayout title="Blog Posts">
   <ul class="post-list">
-    {sortedKeys.map((key) => {
-      const date = new Date(key + '-01');
-      const monthName = date.toLocaleString("default", { month: "long" });
-      const year = date.getFullYear();
+    {
+      sortedKeys.map((key) => {
+        const date = new Date(key + "-01");
+        const monthName = date.toLocaleString("default", { month: "long" });
+        const year = date.getFullYear();
 
-      return (
-        <li key={key}>
-          <h3 class="month-year">{monthName} {year}</h3>
-          <ul>
-            {groupedPosts[key].map((post) => (
-              <li class="post-element">
-                <a href={post.url}>
-                  <h2 class="lower">{post.frontmatter.title}</h2>
-                  <i class="lower subtitle">{post.frontmatter.subtitle}</i>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </li>
-      );
-    })}
+        return (
+          <li key={key}>
+            <h3 class="month-year">
+              {monthName} {year}
+            </h3>
+            <ul>
+              {groupedPosts[key].map((post) => (
+                <li class="post-element">
+                  <a href={post.url}>
+                    <div class="post-title">
+                      {post.frontmatter.bestof && (
+                        <i class="fa fa-star" style="padding-right: 2px;" />
+                      )}
+                      <h2 class="lower">{post.frontmatter.title}</h2>
+                    </div>
+                    <i class="lower subtitle">{post.frontmatter.subtitle}</i>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        );
+      })
+    }
   </ul>
   <a href="/" class="back-link">← Back to home</a>
 </BaseLayout>
@@ -69,75 +78,86 @@ const sortedKeys = Object.keys(groupedPosts).sort(
   }
 
   .lower {
-      line-height: 1;
-      margin-top: 0;
-      margin-bottom: 7px;
-    }
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 7px;
+  }
 
-    .post-element {
-      margin-bottom: 0px;
-    }
+  .post-title {
+    display: flex;
+    align-items: center;
+  }
 
-    .post-element a {
-      display: block;
-      color: #f0e7d8;
-      text-decoration: none;
-      transition: color 0.2s;
-      padding: 10px;
-    }
+  .post-element {
+    margin-bottom: 0px;
+  }
 
-    .post-element a h2 {
-      text-decoration: underline;
-      transition: color 0.2s;
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
+  .post-title i.fa-star {
+    vertical-align: middle;
+    margin-bottom: 7px;
+    margin-right: 7px;
+  }
 
-    .post-element a i.subtitle {
-      margin-bottom: 10px;
-      display: block;
-    }
+  .post-element a {
+    display: block;
+    color: #f0e7d8;
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 10px;
+  }
 
-    .post-element a .post-meta {
-      margin-top: 10px;
-    }
+  .post-element a h2 {
+    text-decoration: underline;
+    transition: color 0.2s;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
 
-    .post-element a:hover {
-      background-color: rgba(255, 255, 255, 0.05);
-      color: #ffaaaa;
-    }
+  .post-element a i.subtitle {
+    margin-bottom: 10px;
+    display: block;
+  }
 
-    .post-element a:hover h2,
-    .post-element a:hover i,
-    .post-element a:hover .post-meta,
-    .post-element a:hover .post-meta i {
-      color: #ffaaaa;
-    }
+  .post-element a .post-meta {
+    margin-top: 10px;
+  }
 
-    .post-element a:hover h2 {
-      text-decoration: underline;
-    }
+  .post-element a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffaaaa;
+  }
 
-    .post-element a h2,
-    .post-element a i,
-    .post-element a .post-meta,
-    .post-element a .post-meta i {
-      transition: color 0.2s;
-    }
+  .post-element a:hover h2,
+  .post-element a:hover i,
+  .post-element a:hover .post-meta,
+  .post-element a:hover .post-meta i {
+    color: #ffaaaa;
+  }
 
-    .back-link {
-      color: #f0e7d8;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+  .post-element a:hover h2 {
+    text-decoration: underline;
+  }
 
-    .back-link:hover {
-      text-decoration: underline;
-      color: #ffaaaa;
-    }
+  .post-element a h2,
+  .post-element a i,
+  .post-element a .post-meta,
+  .post-element a .post-meta i {
+    transition: color 0.2s;
+  }
 
-    .month-year {
-      margin-top: 5px;
-      margin-bottom: 4px;
-    }
+  .back-link {
+    color: #f0e7d8;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+    color: #ffaaaa;
+  }
+
+  .month-year {
+    margin-top: 5px;
+    margin-bottom: 4px;
+  }
 </style>

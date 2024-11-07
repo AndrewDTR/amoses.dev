@@ -7,6 +7,7 @@ tags: ["projects", "python", "js", "upl"]
 author: "Andrew"
 discussion: "Hacker News"
 discussion_link: "https://news.ycombinator.com/item?id=41907360"
+bestof: true
 ---
 
 ## A History of UPL's Cameras
