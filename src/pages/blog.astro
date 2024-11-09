@@ -6,11 +6,9 @@ function groupPostsByYearAndMonth(posts) {
   const grouped = {};
 
   posts.forEach((post) => {
-    const date = new Date(post.frontmatter.pubDate);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const [year, month] = post.frontmatter.pubDate.split("-").map(Number);
 
-    const key = `${year}-${month}`;
+    const key = `${year}-${String(month).padStart(2, "0")}`;
     if (!grouped[key]) {
       grouped[key] = [];
     }
@@ -22,18 +20,30 @@ function groupPostsByYearAndMonth(posts) {
 
 const groupedPosts = groupPostsByYearAndMonth(allPosts);
 
-const sortedKeys = Object.keys(groupedPosts).sort(
-  (a, b) => new Date(b + "-01") - new Date(a + "-01")
-);
+const sortedKeys = Object.keys(groupedPosts).sort((a, b) => b.localeCompare(a));
+
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 ---
 
-<BaseLayout title="Blog Posts">
+<BaseLayout title="Blog Posts - Andrew Moses">
   <ul class="post-list">
     {
       sortedKeys.map((key) => {
-        const date = new Date(key + "-01");
-        const monthName = date.toLocaleString("default", { month: "long" });
-        const year = date.getFullYear();
+        const [year, month] = key.split("-");
+        const monthName = monthNames[parseInt(month, 10) - 1];
 
         return (
           <li key={key}>

@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  imgLink=""
+  title="About - Andrew Moses"
+  subtitle="Who am I? What do I do? Why do I do it?"
+>
+  <div
+    style="margin-top: 20px; display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom"
+  >
+    <img
+      src="/andrew-full-lean.jpg"
+      alt="A channel in the UPL Discord reads '8 people in UPL'."
+      style="max-width: 450px; width: auto;"
+    />
+  </div>
+
+  <i
+    style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;"
+  >
+    A picture of me at <a
+      href="https://madhacks.io"
+      style="padding-left: 4px;"
+      target="_blank">MadHacks</a
+    >!
+  </i>
+
+  <p>Hi! I'm Andrew. (TODO)</p>
+</BaseLayout>
+
+<style>
+  img,
+  video {
+    border: 1px solid #cfbe9b;
+    padding: 5px;
+    transition: border 0.2s;
+  }
+
+  img:hover,
+  video:hover {
+    border: 1px solid #f1e9d8;
+  }
+</style>
