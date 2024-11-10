@@ -27,7 +27,120 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     >!
   </i>
 
-  <p>Hi! I'm Andrew. (TODO)</p>
+  <h2>About me</h2>
+
+  <p class="writeup">
+    Hello! I'm Andrew Moses, an engineer who loves tinkering with anything
+    remotely electronic. I'm a student at the
+    <a href="https://wisc.edu" target="_blank" style="font-size: 1em;"
+      >University of Wisconsin-Madison</a
+    >. Most of the time you can find me hanging at the
+    <a
+      href="https://www.upl.cs.wisc.edu/"
+      target="_blank"
+      style="font-size: 1em;">Undergraduate Projects Lab</a
+    >
+    in the Computer Sciences building. When I'm not at UW, I'm back home in New York
+    City, where I love skating around the boroughs.
+  </p>
+
+  <h2>
+    <abbr
+      title="noun. a statement at the end of a book, typically with a printer's emblem, giving information about its authorship and printing. (Oxford Languages)"
+      class="info-tooltip">Colophon</abbr
+    >
+  </h2>
+
+  <p>
+    I've wanted to have a personal website/a place to be able to write and put
+    blogs for a while now, and it's only until somewhat recently that I've been
+    able to actually sit down and build out the site I wanted.
+  </p>
+
+  <p>
+    This site was built off of <a href="https://astro.build/" target="_blank"
+      >Astro</a
+    >, which is a really neat framework for building content-heavy websites like
+    this one. <a
+      href="https://github.com/AndrewDTR/website/blob/main/src/pages/about.astro"
+      target="_blank">This page</a
+    >
+    is being written in HTML for flexibility, but it just as easily could have been
+    done in markdown. Astro makes it insanely easy to just design the components
+    that you'd like, and then implement them in layouts that you can call as templates
+    for pages. This creates an elegant layered architecture, where -- at least in
+    my case -- I have a <a
+      href="https://github.com/AndrewDTR/website/blob/main/src/layouts/BaseLayout.astro"
+      target="_blank">base layout</a
+    >
+    that contains a blank page with a header and footer, with a slot in the center
+    for inserting whatever content I'd like. Then, I can define a <a
+      href="https://github.com/AndrewDTR/website/blob/main/src/layouts/Blog.astro"
+      target="_blank">layout for blogs</a
+    >
+    that will take some frontmatter variables from any markdown post I make and show
+    them.
+  </p>
+  <p>
+    I've been really happy with Astro. Its plugin integrations have allowed me
+    to implement <a href="https://github.com/rehypejs/rehype" target="_blank"
+      >rehype</a
+    > features, change the vanilla HTML code blocks for much nicer syntax-highlighted
+    ones, generate og images dynamically based on page titles/descriptions, and create
+    an RSS feed from my content (complete with an <a
+      href="https://www.w3.org/Style/XSL/WhatIsXSL.html"
+      target="_blank">RSS stylesheet</a
+    >. Did you know that's something browsers support?! I didn't.).
+  </p>
+  <p>
+    You may not have noticed it if you're on mobile (the site will attempt to
+    disbale it if it detects mobile browser agents or a mobile screen size), but
+    hovering over a link that directs to an external webpage (one not on this
+    site) will make it appear in a tooltip that follows your mouse. This feature
+    was directly inspired by MIT's website design (which was made by
+    Upstatement). There's a treasure trove of really well designed features
+    across their admissions blog -- I attempted to replicate their
+    <a
+      href="https://gwern.net/sidenote#miscellaneous:~:text=MIT%20Admissions%20uses%20a%20footnote%2Dsidenote%20hybrid%3A"
+      target="_blank">sidenotes</a
+    >
+    design at one point, but I wasn't prepared for how intensive the calculations
+    are for drawing them on screen dynamically without disturbing the content. I'll
+    try to get around to that at some point, because I like the idea of sidenotes
+    more than footnotes. (P.S: That gwern link has a fantastic, almost scarily in-depth
+    page on sidenotes in web design. I'd highly recommend checking it out if that
+    kind of stuff interests you.)
+  </p>
+  <p>
+    The source for this website is <a
+      href="https://github.com/AndrewDTR/website"
+      target="_blank">available on my GitHub</a
+    >, and you're able to view what I did in the most recent commit with the
+    link in the footer. If you're wondering, <a
+      href="https://github.com/AndrewDTR/website/blob/e848da9a97124a891b659fce1a2a0fcffb2cf736/src/components/Footer.astro#L2-L7"
+      target="_blank">that's done at build time</a
+    > by parsing the output of <code>git rev-parse --short HEAD</code> (which is
+    ran by Node.js' <code>child_process</code>). That feature was inspired by Xe
+    Iaso, whose work I've seen on Hacker News.
+  </p>
+
+  <p>
+    While I <i>do</i> have a VPS that I put my dynamic projects on, this site is
+    built with GitHub Actions due to its static nature. I just have to make a change,
+    commit and push it, and GitHub will automatically re-build the site and deploy
+    it automatically for me.
+  </p>
+
+  <p>
+    I've certainly wanted to write more posts on this website -- and once I'm
+    able to get my schedule under control, I definitely think I will. It's super
+    fun knowing that there are actual people reading the things I'm writing, and
+    as long as I have interesting things to talk about, I don't see that
+    changing.
+  </p>
+
+  <!-- right aligned -->
+  <p style="text-align: right;">Andrew</p>
 </BaseLayout>
 
 <style>
@@ -41,5 +154,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   img:hover,
   video:hover {
     border: 1px solid #f1e9d8;
+  }
+
+  .info-tooltip {
+    cursor: help;
+    text-decoration: underline dotted;
   }
 </style>
