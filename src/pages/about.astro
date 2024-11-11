@@ -121,7 +121,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     the commit link in the footer. If you're wondering, <a
       href="https://github.com/AndrewDTR/website/blob/e848da9a97124a891b659fce1a2a0fcffb2cf736/src/components/Footer.astro#L2-L7"
       target="_blank">that's done server-side at build time</a
-    > by parsing the output of <code>git rev-parse --short HEAD</code> (which is
+    > by parsing the output of <code class="git-cmd">git rev-parse --short HEAD</code> (which is
     ran by Node.js' <code>child_process</code>). That feature was inspired by Xe
     Iaso, whose work I've seen on Hacker News.
   </p>
@@ -171,5 +171,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     .responsive-image {
       width: 100%;
     }
+  }
+
+  .git-cmd {
+    white-space: nowrap;
   }
 </style>
