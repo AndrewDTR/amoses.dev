@@ -5,6 +5,31 @@ const allPosts = await Astro.glob("./blog/*.md");
 allPosts.sort(
   (a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)
 );
+
+const thingsToAsk = [
+  "web development",
+  "computer vision",
+  "communication protocols",
+  "Zigbee",
+  "MQTT",
+  "Astro",
+  "Python",
+  "Java",
+  "Node.js",
+  "Bootstrap",
+  "3D Printing",
+  "Synthetic Aperture Radar",
+];
+
+const selectedItems = new Set();
+
+while (selectedItems.size < 3) {
+  const randomItem =
+    thingsToAsk[Math.floor(Math.random() * thingsToAsk.length)];
+  selectedItems.add(randomItem);
+}
+
+const [first, second, third] = [...selectedItems];
 ---
 
 <BaseLayout
@@ -26,19 +51,27 @@ allPosts.sort(
             <p class="writeup">
               Hello! I'm Andrew Moses, an engineer who loves tinkering with
               anything remotely electronic. I'm a student at the
-              <a href="https://wisc.edu" target="_blank" style="font-size: 1em;"
-                >University of Wisconsin-Madison</a
-              >, where I'm majoring in Computer Science. Right now, my interests
-              include web development, computer vision, and communication
-              protocols (feel free to ask me about Zigbee or MQTT!). Most of the
-              time you can find me hanging at the
+              <a
+                href="https://wisc.edu"
+                target="_blank"
+                style="font-size: 1em;"
+              >
+                University of Wisconsin-Madison
+              </a>, where I'm majoring in Computer Science. Right now, my
+              interests include
+              <span class="first-like">{first}</span>,
+              <span class="second-like">{second}</span>, and <span
+                class="third-like">{third}</span
+              >. (Feel free to ask me about any of them!) Most of the time you
+              can find me hanging at the
               <a
                 href="https://www.upl.cs.wisc.edu/"
                 target="_blank"
-                style="font-size: 1em;">Undergraduate Projects Lab</a
+                style="font-size: 1em;"
               >
-              in the Computer Sciences building. When I'm not at UW, I'm back home
-              in New York City, where I love skating around the boroughs.
+                Undergraduate Projects Lab
+              </a> in the Computer Sciences building. When I'm not at UW, I'm back
+              home in New York City, where I love skating around the boroughs.
             </p>
             <p class="writeup writeup2">
               I've taken a recent interest in making projects that allow people
@@ -221,4 +254,66 @@ allPosts.sort(
       margin-bottom: 5px;
     }
   }
+
+  .first-like,
+  .second-like,
+  .third-like {
+    background-color: rgb(146, 78, 57);
+    cursor: pointer;
+    padding: 1px 1px;
+    border-radius: 1px;
+    user-select: none;
+  }
 </style>
+
+<script is:inline>
+  const thingsToAsk = [
+    "web development",
+    "computer vision",
+    "communication protocols",
+    "Zigbee",
+    "MQTT",
+    "Astro",
+    "Python",
+    "Java",
+    "Node.js",
+    "Bootstrap",
+    "3D Printing",
+    "Synthetic Aperture Radar",
+  ];
+  const firstSpan = document.querySelector(".first-like");
+  const secondSpan = document.querySelector(".second-like");
+  const thirdSpan = document.querySelector(".third-like");
+
+  function pickNewItem(excludeItems) {
+    const availableItems = thingsToAsk.filter(
+      (item) => !excludeItems.includes(item)
+    );
+    if (availableItems.length === 0) return null;
+    const randomItem =
+      availableItems[Math.floor(Math.random() * availableItems.length)];
+    return randomItem;
+  }
+
+  function handleClick(event) {
+    const span = event.target;
+    const oldItem = span.textContent.trim();
+
+    const otherSpans = [firstSpan, secondSpan, thirdSpan].filter(
+      (s) => s !== span
+    );
+    const otherItems = otherSpans.map((s) => s.textContent.trim());
+
+    const excludeItems = [oldItem, ...otherItems];
+
+    const newItem = pickNewItem(excludeItems);
+
+    if (newItem) {
+      span.textContent = newItem;
+    }
+  }
+
+  firstSpan.addEventListener("click", handleClick);
+  secondSpan.addEventListener("click", handleClick);
+  thirdSpan.addEventListener("click", handleClick);
+</script>
