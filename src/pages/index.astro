@@ -5,31 +5,6 @@ const allPosts = await Astro.glob("./blog/*.md");
 allPosts.sort(
   (a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)
 );
-
-const thingsToAsk = [
-  "web development",
-  "computer vision",
-  "communication protocols",
-  "Zigbee",
-  "MQTT",
-  "Astro",
-  "Python",
-  "Java",
-  "Node.js",
-  "Bootstrap",
-  "3D Printing",
-  "Synthetic Aperture Radar",
-];
-
-const selectedItems = new Set();
-
-while (selectedItems.size < 3) {
-  const randomItem =
-    thingsToAsk[Math.floor(Math.random() * thingsToAsk.length)];
-  selectedItems.add(randomItem);
-}
-
-const [first, second, third] = [...selectedItems];
 ---
 
 <BaseLayout
@@ -59,11 +34,10 @@ const [first, second, third] = [...selectedItems];
                 University of Wisconsin-Madison
               </a>, where I'm majoring in Computer Science. Right now, my
               interests include
-              <span class="first-like">{first}</span>,
-              <span class="second-like">{second}</span>, and <span
-                class="third-like">{third}</span
-              >. (Feel free to ask me about any of them!) Most of the time you
-              can find me hanging at the
+              <span class="first-like"></span>,
+              <span class="second-like"></span>, and <span class="third-like"
+              ></span>. (Feel free to ask me about any of them!) Most of the
+              time you can find me hanging at the
               <a
                 href="https://www.upl.cs.wisc.edu/"
                 target="_blank"
@@ -274,53 +248,74 @@ const [first, second, third] = [...selectedItems];
 </style>
 
 <script is:inline>
-  const thingsToAsk = [
-    "web development",
-    "computer vision",
-    "communication protocols",
-    "Zigbee",
-    "MQTT",
-    "Astro",
-    "Python",
-    "Java",
-    "Node.js",
-    "Bootstrap",
-    "3D Printing",
-    "Synthetic Aperture Radar",
-  ];
-  const firstSpan = document.querySelector(".first-like");
-  const secondSpan = document.querySelector(".second-like");
-  const thirdSpan = document.querySelector(".third-like");
+  document.addEventListener("DOMContentLoaded", function () {
+    const thingsToAsk = [
+      "web development",
+      "computer vision",
+      "communication protocols",
+      "Zigbee",
+      "MQTT",
+      "Astro",
+      "Python",
+      "Java",
+      "Node.js",
+      "Bootstrap",
+      "3D Printing",
+      "Synthetic Aperture Radar",
+    ];
 
-  function pickNewItem(excludeItems) {
-    const availableItems = thingsToAsk.filter(
-      (item) => !excludeItems.includes(item)
-    );
-    if (availableItems.length === 0) return null;
-    const randomItem =
-      availableItems[Math.floor(Math.random() * availableItems.length)];
-    return randomItem;
-  }
+    function selectThreeRandomItems() {
+      const selectedItems = new Set();
 
-  function handleClick(event) {
-    const span = event.target;
-    const oldItem = span.textContent.trim();
+      while (selectedItems.size < 3) {
+        const randomItem =
+          thingsToAsk[Math.floor(Math.random() * thingsToAsk.length)];
+        selectedItems.add(randomItem);
+      }
 
-    const otherSpans = [firstSpan, secondSpan, thirdSpan].filter(
-      (s) => s !== span
-    );
-    const otherItems = otherSpans.map((s) => s.textContent.trim());
-
-    const excludeItems = [oldItem, ...otherItems];
-
-    const newItem = pickNewItem(excludeItems);
-
-    if (newItem) {
-      span.textContent = newItem;
+      return [...selectedItems];
     }
-  }
 
-  firstSpan.addEventListener("click", handleClick);
-  secondSpan.addEventListener("click", handleClick);
-  thirdSpan.addEventListener("click", handleClick);
+    const [first, second, third] = selectThreeRandomItems();
+
+    const firstSpan = document.querySelector(".first-like");
+    const secondSpan = document.querySelector(".second-like");
+    const thirdSpan = document.querySelector(".third-like");
+
+    firstSpan.textContent = first;
+    secondSpan.textContent = second;
+    thirdSpan.textContent = third;
+
+    function pickNewItem(excludeItems) {
+      const availableItems = thingsToAsk.filter(
+        (item) => !excludeItems.includes(item)
+      );
+      if (availableItems.length === 0) return null;
+      const randomItem =
+        availableItems[Math.floor(Math.random() * availableItems.length)];
+      return randomItem;
+    }
+
+    function handleClick(event) {
+      const span = event.target;
+      const oldItem = span.textContent.trim();
+
+      const otherSpans = [firstSpan, secondSpan, thirdSpan].filter(
+        (s) => s !== span
+      );
+      const otherItems = otherSpans.map((s) => s.textContent.trim());
+
+      const excludeItems = [oldItem, ...otherItems];
+
+      const newItem = pickNewItem(excludeItems);
+
+      if (newItem) {
+        span.textContent = newItem;
+      }
+    }
+
+    firstSpan.addEventListener("click", handleClick);
+    secondSpan.addEventListener("click", handleClick);
+    thirdSpan.addEventListener("click", handleClick);
+  });
 </script>
