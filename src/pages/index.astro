@@ -258,11 +258,18 @@ const [first, second, third] = [...selectedItems];
   .first-like,
   .second-like,
   .third-like {
-    background-color: rgb(146, 78, 57);
+    background-color: rgb(145, 65, 41);
     cursor: pointer;
     padding: 1px 1px;
     border-radius: 1px;
     user-select: none;
+    transition: background-color 0.1s;
+  }
+
+  .first-like:hover,
+  .second-like:hover,
+  .third-like:hover {
+    background-color: rgb(122, 60, 41);
   }
 </style>
 
