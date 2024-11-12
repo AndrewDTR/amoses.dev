@@ -44,7 +44,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     City, where I love skating around the boroughs.
   </p>
 
-  <h2>
+  <h2>Contact</h2>
+
+  <p style="margin-bottom: 0;">
+    Feel free to contact me for whatever reason. (Please no spam!) If you'd like to sign a message, my PGP key is below.
+  </p>
+  <b style="margin-top: 0;">PGP Key:</b><p
+    style="display: inline-block; margin-left: 5px;"
+  >
+    <a href="/andrewpubkey.asc" download="andrewpubkey.asc">
+      <code>09B002A2D2EC587198CDEA50F2857F8A8836A7CF</code>
+    </a>
+  </p>
+  <h2 style="margin-top: 0;">
     <abbr
       title="noun. a statement at the end of a book, typically with a printer's emblem, giving information about its authorship and printing. (Oxford Languages)"
       class="info-tooltip">Colophon</abbr
@@ -53,7 +65,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <p>
     I've wanted to have a personal website/a place to be able to write and put
-    blogs for a while now, and it's only until somewhat recently that I've been
+    blog posts for a while now, and it's only until somewhat recently that I've been
     able to actually sit down and build out the site I wanted.
   </p>
 
@@ -121,9 +133,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     the commit link in the footer. If you're wondering, <a
       href="https://github.com/AndrewDTR/website/blob/e848da9a97124a891b659fce1a2a0fcffb2cf736/src/components/Footer.astro#L2-L7"
       target="_blank">that's done server-side at build time</a
-    > by parsing the output of <code class="git-cmd">git rev-parse --short HEAD</code> (which is
-    ran by Node.js' <code>child_process</code>). That feature was inspired by Xe
-    Iaso, whose work I've seen on Hacker News.
+    > by parsing the output of <code class="git-cmd"
+      >git rev-parse --short HEAD</code
+    > (which is ran by Node.js' <code>child_process</code>). That feature was
+    inspired by Xe Iaso, whose work I've seen on Hacker News.
   </p>
 
   <p>

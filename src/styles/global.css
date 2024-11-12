@@ -149,6 +149,11 @@ code {
   padding: 0.1em 0.3em;
   border-radius: 4px;
   font-family: monospace;
+  transition: color 0.2s;
+}
+
+code:hover {
+  color: #ffaaaa;
 }
 
 .actual-content img,

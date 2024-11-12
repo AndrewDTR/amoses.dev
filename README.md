@@ -1,5 +1,5 @@
 > [!NOTE]  
-> Welcome to the repository for my website. It's not really set up to be directly cloned/copied, but hopefully you can learn/get inspired by poking around and seeing how I did certain things.
+> Welcome to the repository for my website! It's not really set up to be directly cloned/copied, but hopefully you can learn/get inspired by poking around and seeing how I did certain things.
 
 # Andrew's Website
 
