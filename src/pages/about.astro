@@ -50,13 +50,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     Feel free to contact me for whatever reason. (Please no spam!) My email is
     "me" plus this domain. If you'd like to sign a message, my PGP key is below.
   </p>
-  <b style="margin-top: 0;">PGP Key:</b><p
-    style="display: inline-block; margin-left: 5px;"
+
+  <div
+    style="display: flex; align-items: baseline; flex-wrap: wrap; margin-top: 12px; margin-bottom: 20px;"
   >
-    <a href="/andrewpubkey.asc" download="andrewpubkey.asc">
+    <b>PGP Key:</b>
+    <a
+      href="/andrewpubkey.asc"
+      download="andrewpubkey.asc"
+      style="margin-left: 5px; min-width: 0;"
+    >
       <code>09B002A2D2EC587198CDEA50F2857F8A8836A7CF</code>
     </a>
-  </p>
+  </div>
+
   <h2 style="margin-top: 0;">
     <abbr
       title="noun. a statement at the end of a book, typically with a printer's emblem, giving information about its authorship and printing. (Oxford Languages)"
@@ -185,6 +192,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     .responsive-image {
       width: 100%;
     }
+  }
+
+  code {
+    white-space: normal;
+    word-break: break-all;
   }
 
   .git-cmd {
