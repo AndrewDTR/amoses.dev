@@ -68,16 +68,16 @@ allPosts.sort(
         </div>
         <hr class="custom-hr" />
         <p>
-          Here are the three latest blogs I've published. You can find the
+          Here are the three latest articles I've published. You can find the
           entire list of my writing <a href="/blog" style="font-size: 1em;"
-            >here</a
+            >on the blog page</a
           >.
         </p>
         <ul class="blog-list">
           {
             allPosts.slice(0, 3).map((post) => (
-              <a href={post.url} class="blog-post-link">
-                <li class="blog-post-item">
+              <li class="blog-post-item">
+                <a href={post.url} class="blog-post-link">
                   {post.frontmatter.bestof && (
                     <i class="fa fa-star" style="padding-right: 2px;" />
                   )}
@@ -85,8 +85,8 @@ allPosts.sort(
                   <i>
                     {post.frontmatter.subtitle} | {post.frontmatter.pubDate}
                   </i>
-                </li>
-              </a>
+                </a>
+              </li>
             ))
           }
         </ul>

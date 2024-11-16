@@ -21,6 +21,14 @@ const { imgLink, title, subtitle } = Astro.props;
     {subtitle && <meta property="og:description" content={subtitle} />}
     {imgLink && <meta property="og:image:width" content="1200" />}
     {imgLink && <meta property="og:image:height" content="630" />}
+    {
+      Astro.url.pathname === "/" && (
+        <meta
+          name="description"
+          content="Hi! I'm Andrew, a student at the University of Wisconsin-Madison. I love tinkering with anything remotely electronic."
+        />
+      )
+    }
     <meta property="og:type" content="article" /><meta
       name="twitter:card"
       content="summary_large_image"
