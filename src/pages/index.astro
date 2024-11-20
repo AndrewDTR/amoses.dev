@@ -76,8 +76,8 @@ allPosts.sort(
         <ul class="blog-list">
           {
             allPosts.slice(0, 3).map((post) => (
-              <li class="blog-post-item">
-                <a href={post.url} class="blog-post-link">
+              <a href={post.url} class="blog-post-link">
+                <li class="blog-post-item">
                   {post.frontmatter.bestof && (
                     <i class="fa fa-star" style="padding-right: 2px;" />
                   )}
@@ -85,8 +85,8 @@ allPosts.sort(
                   <i>
                     {post.frontmatter.subtitle} | {post.frontmatter.pubDate}
                   </i>
-                </a>
-              </li>
+                </li>
+              </a>
             ))
           }
         </ul>
