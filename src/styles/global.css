@@ -89,7 +89,7 @@ body {
 
 .content {
   flex-grow: 1;
-  width: 80%;
+  width: 72%;
   margin: 0 auto;
 }
 
@@ -172,4 +172,64 @@ code:hover {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+.callout {
+  position: relative;
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-left: 5px solid var(--callout-bar-color);
+  background-color: var(--callout-bg-color, #2c2c2c);
+  color: var(--callout-text-color, #f0e7d8);
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+.callout-header {
+  display: flex;
+  align-items: center;
+  background-color: var(--callout-header-bg-color);
+  padding: 5px 10px;
+  margin: -10px -10px 10px -10px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  color: var(--callout-header-text-color, #f0e7d8);
+}
+
+.callout-icon {
+  font-size: 1.2rem;
+  margin-right: 6px;
+  color: inherit;
+}
+
+.callout.note {
+  --callout-bar-color: #587bbf;
+  --callout-bg-color: #2e3a4b;
+  --callout-header-bg-color: #3b5070;
+  --callout-header-text-color: #d0e0ff;
+  --callout-text-color: #a8c4ff;
+}
+
+.callout.warning {
+  --callout-bar-color: #e6a400;
+  --callout-bg-color: #4a3628;
+  --callout-header-bg-color: #5b4023;
+  --callout-header-text-color: #ffe08a;
+  --callout-text-color: #f7c66a;
+}
+
+.callout.important {
+  --callout-bar-color: #b84b4b;
+  --callout-bg-color: #4b2c2c;
+  --callout-header-bg-color: #5a3434;
+  --callout-header-text-color: #ffc0c0;
+  --callout-text-color: #ffb3b3;
+}
+
+.callout.tip {
+  --callout-bar-color: #55a97a;
+  --callout-bg-color: #2b4030;
+  --callout-header-bg-color: #37503b;
+  --callout-header-text-color: #b0f0c4;
+  --callout-text-color: #9cebb2;
 }

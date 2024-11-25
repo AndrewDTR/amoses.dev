@@ -72,6 +72,47 @@ There was also the issue of the model sometimes interpreting the chair in the co
 
 It was around this time that I stumbled upon the homepage of [MITERS](https://miters.mit.edu/), a makerspace at MIT. On their website, they broadcast whether the door to the space is open using a reed switch attached to a Raspberry Pi. Reed switches are small, physical components that are able to detect a magnetic field. If you put one on a doorframe, and then attach a tiny magnet to the door itself, you have an effective way of detecting whether a door is open or closed! I was able to find [a writeup](https://andrewbirkel.com/projects/MITERS_Door.html) by a former member of the space on their implementation, but I can't guarantee that it's accurate to how it's set up there currently.
 
+<div class="callout note">
+  <div class="callout-header">
+    <span class="callout-icon">ℹ️</span>
+    <span>Note - Added 11/25/2024</span>
+  </div>
+  <p>In response to this article's release, I've received a <i>lot</i> of questions asking me why I made the choice to track the status of the doors, rather than other attributes of the room. Many of these questions came from <a href="https://news.ycombinator.com/item?id=41907360" target="_blank">my post on Hacker News</a>, as well as the article posted on <a href="https://hackaday.com/2024/10/24/keeping-tabs-on-an-undergraduate-projects-labs-door-status/" target="_blank">Hackaday</a> -- where one particularly amusing comment accused me of "...not looking at [the project] from a systems point of view." Here's my response to some of those questions, in no particular order:</p>
+  <p style="margin-bottom: 3px;">Why not...</p>
+  <ul style="margin-top: 0; margin-bottom: 3px;">
+    <li>...point cameras at the doors?</li>
+    <ul>
+    <li>That could work too! However, it would just be far more complex than simply attaching the two Zigbee sensors on the doors -- I would have to train a model to recognize the difference between viewing the interior side of the UPL versus the CS walkway.</li>
+    </ul>
+  </ul>
+  <ul style="margin-top: 0; margin-bottom: 3px;">
+    <li>...point the camera at the lights of the room?</li>
+    <ul>
+    <li>One of the main things that people seemed to be confused about was the difference between tracking the <i>state</i> of the room versus its <i>occupancy</i>. The key distinction is that people being in the room doesn't necessarily indicate that it's open to the public. There could be coordinators having a meeting (or a maintenance person in there cleaning, and so on). Yes, it would be possible to have other ways of knowing whether there are people <i>in the room</i> (like the other suggestions mentioned here), but none indicate its status as well as the doors (other than people just writing "the room is closed to the public" on Discord).</li>
+    </ul>
+  </ul>
+  <ul style="margin-top: 0; margin-bottom: 3px;">
+    <li>...use a technological solution to detect devices in the lab?</li>
+    <ul>
+    <li>I saw a few suggestions about this -- namely, <a href="https://news.ycombinator.com/item?id=41908772" target="_blank">this one</a> by zdw mentioning the <span style="font-family: monospace;">finger</span> command, as well as <a href="https://news.ycombinator.com/item?id=41912287" target="_blank">this comment</a> by zimpenfish about using <span style="font-family: monospace;">rlogin</span> and <span style="font-family: monospace;">who</span> to determine who's logged into the network. Well -- the UPL doesn't have desktop computers available for students to come in and use anymore. Most students just bring their laptop, as computers aren't necessarily hard to come by anymore...! We don't have the infrastructure (at least, right now) to allow students to ssh into our servers, and even if we did, there would be no way of telling if they were doing it on-premises. As for using WiFi/DHCP leases to detect devices (as recommended by q3k in <a href="https://news.ycombinator.com/item?id=41913831" target="_blank">this comment</a>): UPLians use UWNet or eduroam, not the UPL's own WiFi network. There's also some privacy-related concerns about snooping/logging/aggregating users, even if anonymized, that highly dissuades us from implementing anything like that.</li>
+    </ul>
+  </ul>
+  <ul style="margin-top: 0; margin-bottom: 3px;">
+    <li>...just use an online reservation/booking system?</li>
+    <ul>
+    <li><a href="https://www.upl.cs.wisc.edu" target="_blank">The UPL</a> isn't a conference room. While there <i>is</i> a list of the coordinators' individual hours, the actual occupancy of the room doesn't necessarily follow that schedule. Sometimes coords miss their hours, and other times <a href="/images/upl-pc/five_am.jpg">the room remains open until 5am.</a> All that to say: it is <b>not</b> possible to simply do a schedule lookup to determine the status of the room, and having preset times for determining occupancy would be inaccurate fairly often. </li>
+    </ul>
+  </ul>
+  <ul style="margin-top: 0; margin-bottom: 3px;">
+    <li>...use <a href="https://arxiv.org/pdf/2301.00250" target="_blank">WiFi signals</a> to get an accurate number of the people in the room?</li>
+    <ul>
+    <li>Uh... wow. That's insanely cool. But it still doesn't expressly convey the <i>intent</i> of the room's use. It would still be neat to have a count for the number of people as <i>well as</i> the status of the room, so I'm definitely stashing this away in my head.</li>
+    </ul>
+  </ul>
+</ul>
+  <p style="margin-bottom: 4px;">Hopefully that can answer some of the most common questions I've gotten about the project. Thanks for reading!</p>
+</div>
+
 I considered using similar components for a door status checker for the UPL -- it wouldn't have been too much effort to buy WiFi enabled ESP32 modules and off-the-shelf door-mountable reed switches. Then, I would have the chips simply send a POST request with their status every time the door was opened or closed.
 
 I decided against this approach for a few reasons:
