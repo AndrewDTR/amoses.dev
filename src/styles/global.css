@@ -233,3 +233,8 @@ code:hover {
   --callout-header-text-color: #b0f0c4;
   --callout-text-color: #9cebb2;
 }
+
+body, .content {
+  overflow: auto;
+  word-wrap: break-word;
+}
