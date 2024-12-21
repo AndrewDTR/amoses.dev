@@ -3,7 +3,7 @@ layout: "../../layouts/Blog.astro"
 title: "Revamping the UPL's people counter"
 pubDate: "2024-10-14"
 subtitle: "who knew figuring out the lab's occupancy would be so much work?!"
-tags: ["projects", "python", "js", "upl", "uw"]
+tags: ["projects", "upl", "uw"]
 author: "Andrew"
 discussion: "Hacker News"
 discussion_link: "https://news.ycombinator.com/item?id=41907360"
