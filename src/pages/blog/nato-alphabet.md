@@ -30,7 +30,7 @@ As I write this, it's winter break! I'm back home and, along with sleeping in an
     <i style="display: flex; justify-content: center; font-size: 0.95em;">An in-air T55 from VTOL VR.</i>
 </p>
 
-There are multiplayer lobbies in the game where you're able to talk to other pilots/air traffic controllers on the radio frequency. And while the level of realism is nowhere near what other networks such as [VATSIM](https://vatsim.net/) attempt to maintain, it's not unheard of for radio communications to use some of the specialized jargon used in the aviation industry. One hallmark of this lingo is the use of the [NATO phonetic alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet), which is a mapping of every letter and number in the Roman alphabet. This is used to differentiate between letters that could be confused over a low-quality signal, such as radio or telephone.
+There are multiplayer lobbies in the game where you're able to talk to other pilots/air traffic controllers on the radio frequency. And while the level of realism is nowhere near what other networks such as [VATSIM](https://vatsim.net/) attempt to maintain, it's not unheard of for radio communications to contain some of the specialized jargon used in the aviation industry. One hallmark of this lingo is the use of the [NATO phonetic alphabet](https://en.wikipedia.org/wiki/NATO_phonetic_alphabet), which is a mapping of every letter and number in the Roman alphabet. It's used to differentiate between letters that could be confused over a low-quality signal, such as radio or telephone. Imagine trying to tell the difference between common letters like `B` and `D`, or `M` and `N` on a radio channel filled with static.
 
 <div
   style="
@@ -54,15 +54,15 @@ There are multiplayer lobbies in the game where you're able to talk to other pil
 </p>
 
 
-For example, if you're talking to an air traffic controller, mistakenly interpreting an instruction to `hold short runway 23 at *P*` as `hold short runway 23 at *B*` could potentially put multiple aircraft in danger. Because of this, the NATO phonetic system requires that any spelling of letters is expanded into the corresponding word in the alphabet. An aircraft with the callsign `N123AB` would be pronounced as `NOVEMBER ONE TWO THREE ALPHA BRAVO`.
+For example, if you're talking to an air traffic controller, mistakenly interpreting an instruction to `hold short runway 23 at *P*` as `hold short runway 23 at *B*` could potentially put multiple aircraft in danger. Because of this, the NATO phonetic system requires that any spelling of letters is expanded into the corresponding word in the alphabet. Each letter is individually pronounced -- an aircraft with the callsign `N123AB` would be pronounced as `NOVEMBER ONE TWO THREE ALPHA BRAVO`.
 
-The issue is... I don't play aviation-related games with comms frequently enough to have proficiency with the alphabet. I'm lucky that VTOL includes the phoneticization of the callsign of your plane, because if they didn't, I would have _no clue_ on how to properly describe my aircraft to people on frequency.
+The issue is... I don't play aviation-related games with comms frequently enough to have proficiency with the NATO alphabet. I'm lucky that VTOL includes the phoneticization of the callsign of your plane, because if they didn't, I would have _no clue_ on how to properly describe my aircraft to people on frequency.
 
 Just for fun, though[^1], I'd still like to be proficient at interpreting the letters.
 
 ## The Website
 
-...so, I made a website. I used Astro, just because it's what I'm most comfortable with when rapidly prototyping. The [primary page](https://github.com/AndrewDTR/learn-nato/blob/master/src/pages/index.astro) contains nothing more than a few labels and a button, but that's all I needed!
+...so, I made a website. I used Astro as the framework, just because it's what I'm most comfortable with when rapidly prototyping. The [primary page](https://github.com/AndrewDTR/learn-nato/blob/master/src/pages/index.astro) contains nothing more than a few labels and a button, but that's all I needed!
 
 The site will give you a four letter character combination -- say, `JUFH`, for example. It'll then activate your microphone and listen to hear if you say the correct phoneticization (in this case, it would mark you correct if you said `JULIET UNIFORM FOXTROT HOTEL`). If you blank on what a specific letter stands for, there's a hint button that you can press to see what to pronounce.[^2] When you get it correct, there's a nice burst of confetti, and the site will prompt you to try another example.
 
@@ -103,4 +103,4 @@ That's it! [Here's the link to the site, if you'd like to try it out](https://na
 
 [^2]: Notably, pressing the hint button doesn't automatically skip you -- it still requires that you say the correct answer. This was inspired by the design pattern of Duolingo, whose team definitely has more UX experience with language learning than I do!
 
-[^3]: Firefox has speech _synthesis_, which is the portion of the Web Speech API that allows for text to speech. However, because the speech recognition aspect of the API relies on offloading the data to remote servers, Mozilla hasn't implemented support for it. The site can recognize this and displays a generic "...speech recognition is not supported in this browser" message.
+[^3]: Firefox has speech _synthesis_, which is the portion of the Web Speech API that allows for text to speech. However, because the speech recognition aspect of the API relies on offloading the data to remote servers, Mozilla hasn't implemented support for it. The site can recognize this and displays a generic "...speech recognition is not supported in this browser" message. Yes, there are various speech recognition models that you can load into the browser's cache with WASM, but that feels like an unproportionate amount of effort for such a small user base who won't be receiving the intended experience.
