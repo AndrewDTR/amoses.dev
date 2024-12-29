@@ -23,8 +23,8 @@ window.mobileCheck = function () {
 
           tooltip.textContent = displayHostname;
           tooltip.style.display = "block";
-          tooltip.style.left = event.pageX + 10 + "px";
-          tooltip.style.top = event.pageY + 10 + "px";
+          tooltip.style.left = event.pageX + 5 + "px";
+          tooltip.style.top = event.pageY + 5 + "px";
         }
       }
     });
