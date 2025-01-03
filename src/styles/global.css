@@ -152,7 +152,7 @@ code {
   transition: color 0.2s;
 }
 
-code:hover {
+a code:hover {
   color: #ffaaaa;
 }
 
