@@ -58,14 +58,14 @@ allPosts.sort(
         </div>
         <hr class="custom-hr" />
         <p>
-          Here are the three latest articles I've published. You can find the
+          Here are the five latest articles I've published. You can find the
           entire list of my writing <a href="/blog" style="font-size: 1em;"
             >on the blog page</a
           >.
         </p>
         <ul class="blog-list">
           {
-            allPosts.slice(0, 3).map((post) => (
+            allPosts.slice(0, 5).map((post) => (
               <a href={post.url} class="blog-post-link">
                 <li class="blog-post-item">
                   {post.frontmatter.bestof && (

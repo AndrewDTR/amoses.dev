@@ -27,4 +27,5 @@ pnpm-debug.log*
 .obsidian/
 
 # until i finish
+yap-kitchen.md
 ics-schedule-generator.md
