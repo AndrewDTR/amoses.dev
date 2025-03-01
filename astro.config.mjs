@@ -7,6 +7,9 @@ import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-s
 
 // https://astro.build/config
 export default defineConfig({
+    prefetch: {
+        prefetchAll: true
+    },
     site: 'https://amoses.dev',
     markdown: {
         rehypePlugins: [
