@@ -23,15 +23,13 @@ const currentYear = new Date().getFullYear();
       <p class="made-with-love">Made with &lt;3</p>
     </div>
     <div class="footer-section">
-      <p class="commit-text">
-        Commit
-        <a
-          class="commit-hash"
+      <p className="commit-text">
+        prod@<a
+          className="commit-hash"
           href={`https://github.com/AndrewDTR/website/commit/${hash}`}
           target="_blank"
           aria-label="GitHub commit hash"
-        >
-          {hash}
+        >{hash}
         </a>
       </p>
     </div>
