@@ -5,6 +5,8 @@ export async function GET(context) {
         import.meta.glob('./blog/*.{md,mdx}')
     );
 
+    console.log(originalItems)
+
     const itemsWithAuthor = originalItems.map((item) => ({
         ...item,
         author: 'Andrew Moses',

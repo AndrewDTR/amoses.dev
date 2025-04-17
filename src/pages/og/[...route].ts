@@ -7,7 +7,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
   pages,
   getImageOptions: (_path, page) => ({
     title: page.frontmatter.title || "Default Title",
-    description: page.frontmatter.subtitle || "Default Subtitle",
+    description: page.frontmatter.description || "Default description",
     dir: page.dir,
     logo: { path: "./src/amoses.png", size: [50] },
     border: { color: [240, 231, 216], width: 20, side: "inline-start" },

@@ -9,11 +9,11 @@ const hasDiscussion = frontmatter.discussion && frontmatter.discussion_link;
 <BaseLayout
   imgLink={imgLink}
   title={frontmatter.title}
-  subtitle={frontmatter.subtitle}
+  description={frontmatter.description}
 >
   <div slot="outside-content" class="top">
     <p class="blog-title">{frontmatter.title}</p>
-    <p class="subtitle">{frontmatter.subtitle}</p>
+    <p class="description">{frontmatter.description}</p>
     <p class="others">
       <i class="fa-solid fa-user fa-sm" style="padding-right: 2px;"></i>
       By {frontmatter.author || "Me"} | <i
@@ -67,7 +67,7 @@ const hasDiscussion = frontmatter.discussion && frontmatter.discussion_link;
       margin-bottom: 0;
     }
 
-    .subtitle {
+    .description {
       font-size: 1.25em;
       margin-top: 0.2em;
       margin-bottom: 1em;

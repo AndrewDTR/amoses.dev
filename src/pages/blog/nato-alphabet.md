@@ -2,7 +2,7 @@
 layout: "../../layouts/Blog.astro"
 title: "Learning the NATO phonetic alphabet with the Web Speech API"
 pubDate: "2024-12-29"
-subtitle: "and they told me 'video games can't teach you anything'"
+description: "and they told me 'video games can't teach you anything'"
 tags: ["projects", "games"]
 author: "Andrew"
 bestof: false

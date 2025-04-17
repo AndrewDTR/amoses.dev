@@ -2,7 +2,7 @@
 layout: "../../layouts/Blog.astro"
 title: "Blog 1"
 pubDate: "2021-09-01"
-subtitle: "This is the first blog post"
+description: "This is the first blog post"
 # tags: ["one", "two", "three"]
 ---
 

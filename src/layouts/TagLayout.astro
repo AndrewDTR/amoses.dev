@@ -22,8 +22,7 @@ const title = tag;
           <li class="post-element">
             <a href={post.url}>
               <h2 class="lower">{post.frontmatter.title}</h2>
-              <!-- Added 'subtitle' class here -->
-              <i class="lower subtitle">{post.frontmatter.subtitle}</i>
+              <i class="lower description">{post.frontmatter.description}</i>
               <div class="post-meta">
                 <i
                   class="fa-regular fa-calendar fa-sm"
@@ -65,7 +64,7 @@ const title = tag;
       margin-bottom: 10px;
     }
 
-    .post-element a i.subtitle {
+    .post-element a i.description {
       margin-bottom: 10px;
       display: block;
     }
