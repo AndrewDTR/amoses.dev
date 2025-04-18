@@ -24,12 +24,12 @@ const currentYear = new Date().getFullYear();
     </div>
     <div class="footer-section">
       <p className="commit-text">
-        prod@<a
+        {import.meta.env.PROD ? "prod@" : "dev@"}<a
           className="commit-hash"
           href={`https://github.com/AndrewDTR/website/commit/${hash}`}
           target="_blank"
           aria-label="GitHub commit hash"
-        >{hash}
+          >{hash}
         </a>
       </p>
     </div>
