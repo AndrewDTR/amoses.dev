@@ -161,6 +161,14 @@ a code:hover {
   border: 1px solid #cfbe9b;
   padding: 5px;
   transition: border 0.2s;
+  display: block;
+  width: min(100%, 350px);
+  height: auto;
+  max-width: 100%;
+}
+
+.media-row > * {
+  min-width: 0;
 }
 
 .actual-content img:hover,
@@ -240,7 +248,7 @@ body,
   word-wrap: break-word;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .content {
     width: 100%;
     margin: 0;

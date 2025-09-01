@@ -51,7 +51,7 @@ The first iteration of the people counting system (as built by [Michael Berkey](
 It then set the name of a channel to the results (either `1-person-in-upl` or `X-people-in-upl`), which others could check.
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
-    <img src="/images/upl-pc/8-people-in-upl.png" alt="A channel in the UPL Discord reads '8 people in UPL'." style="max-width: 350px; width: auto;" />
+    <img src="/images/upl-pc/8-people-in-upl.png" alt="A channel in the UPL Discord reads '8 people in UPL'." />
 </div>
 
 <i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">An example of what the Discord looked like on a day with a semi-busy UPL.</i>
@@ -364,13 +364,13 @@ Now, the server will query Home Assistant's API on your behalf (with the proper 
 ...and the Discord bot/UPL website can use that to let people know what the status is.
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
-    <img src="/images/upl-pc/open_door.png" alt="The UPL website reads 'the doors are open!' with an icon of an open door." style="max-width: 350px; width: auto;" />
+    <img src="/images/upl-pc/open_door.png" alt="The UPL website reads 'the doors are open!' with an icon of an open door." />
 </div>
 
 <i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">The UPL website uses a header component which fetches the door status every 15 seconds.</i>
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
-    <img src="/images/upl-pc/upl_discord.png" alt="A channel in the UPL Discord reads 'UPL doors open'." style="max-width: 350px; width: auto;" />
+    <img src="/images/upl-pc/upl_discord.png" alt="A channel in the UPL Discord reads 'UPL doors open'." />
 </div>
 
 <i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">The Discord channel name is an easy way to see the status without opening the site.</i>
