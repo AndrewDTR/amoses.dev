@@ -18,9 +18,9 @@ For almost as long as [the Undergraduate Projects Lab](https://www.upl.cs.wisc.e
 
 Just _reading_ that makes me stare at the camera that now sits perched on top of the arcade cabinet with wonder. What used to be several thousand dollars of equipment is now achievable (with immeasurably better quality) with a $50 webcam plugged into a Raspberry Pi.
 
-<div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
-    <img src="/images/upl-pc/old_upl.png" alt="A grainy image featuring an interior view of the UPL, a triangular-shaped undergraduate lab at UW-Madison." style="max-height: 250px; width: auto; max-width: 100%;" />
-    <img src="/images/upl-pc/new_upl.jpeg" alt="An image featuring the interior of the UPL, a lab at UW-Madison. Students sit at laptops." style="max-height: 250px; width: auto; max-width: 100%;" />
+<div class="media-row">
+    <img src="/images/upl-pc/old_upl.png" alt="A grainy image featuring an interior view of the UPL, a triangular-shaped undergraduate lab at UW-Madison." />
+    <img src="/images/upl-pc/new_upl.jpeg" alt="An image featuring the interior of the UPL, a lab at UW-Madison. Students sit at laptops." />
 </div>
 
 <i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">Taken ~25 years apart.</i>
@@ -41,9 +41,9 @@ Well, myself, in collaboration with other UPL members, decided to fix this issue
 
 The first iteration of the people counting system (as built by [Michael Berkey](https://github.com/mdberkey)) utilized a Logitech C920 camera mounted on a vantage point that had a clear view of the room. A Discord bot was set on a 15 minute loop (using discord.py.ext's `@tasks.loop(minutes=15)`) to call a YOLOv7 model set to class 0 (detecting people). The bot called the webcam to take an image, then ran it through the model for inference. It returned the number of people in the room (and annotated the image with bounding boxes of where it believed the people to be, for debug purposes).
 
-<div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
-    <img src="/images/upl-pc/camera-over.png" alt="The front side of a C920 webcam." style="max-height: 200px; width: auto; max-width: 100%;" />
-    <img src="/images/upl-pc/camera-peek.png" alt="The back side of a C920 webcam." style="max-height: 200px; width: auto; max-width: 100%;" />
+<div class="media-row">
+    <img src="/images/upl-pc/camera-over.png" alt="The front side of a C920 webcam." />
+    <img src="/images/upl-pc/camera-peek.png" alt="The back side of a C920 webcam." />
 </div>
 
 <i style="display: flex; justify-content: center; margin-top: 10px; font-size: 0.95em;">...don't mind the tape.</i>
@@ -218,13 +218,13 @@ I decided to use [these Aqara door and window sensors](https://www.amazon.com/Aq
 
 Once the coordinator and sensors arrived, I created a Home Assistant login and installed the ZHA integration. Pairing simply required holding the "reset" button on the sensors until Home Assistant recognized them and added the corresponding entities in the dashboard.
 
-<div style="display: flex; justify-content: center; gap: 12px; max-width: 100%; flex-wrap: wrap; margin-bottom">
+<div class="media-row">
     <figure style="max-width: 300px; text-align: center; margin: 0;">
-        <img src="/images/upl-pc/rpi_wall.png" alt="An image of a Raspberry Pi suspended from a wall with various cables plugged into it. There's a USB stick with an antenna sticking out." style="max-height: 300px; width: auto; max-width: 100%;" />
+        <img src="/images/upl-pc/rpi_wall.png" alt="An image of a Raspberry Pi suspended from a wall with various cables plugged into it. There's a USB stick with an antenna sticking out." />
         <figcaption style="font-style: italic; font-size: 0.95em; margin-top: 10px;">Raspberry Pi with Zigbee coordinator</figcaption>
     </figure>
     <figure style="max-width: 300px; text-align: center; margin: 0;">
-        <img src="/images/upl-pc/sensor_wall.png" alt="An image featuring a door contact sensor. The door is cracked open, and the sensors are nearly making contact." style="max-height: 300px; width: auto; max-width: 100%;" />
+        <img src="/images/upl-pc/sensor_wall.png" alt="An image featuring a door contact sensor. The door is cracked open, and the sensors are nearly making contact." />
         <figcaption style="font-style: italic; font-size: 0.95em; margin-top: 10px;">Aqara door contact sensor on the open door</figcaption>
     </figure>
 </div>

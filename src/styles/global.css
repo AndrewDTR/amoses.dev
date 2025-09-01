@@ -5,7 +5,6 @@
   line-height: 1.2;
 }
 
-/* reserves the space that'll appear if there WAS a sidebar. stops everything from shifting when a scrollbar appears */
 html {
   scrollbar-gutter: stable both-edges;
 }
@@ -19,6 +18,7 @@ html {
 p {
   font-size: 1.1em;
 }
+
 body {
   width: 85%;
   margin: 0 auto;
@@ -162,9 +162,9 @@ a code:hover {
   padding: 5px;
   transition: border 0.2s;
   display: block;
-  width: min(100%, 350px);
-  height: auto;
   max-width: 100%;
+  height: auto;
+  margin: 0.5rem auto;
 }
 
 .media-row > * {
@@ -181,6 +181,7 @@ a code:hover {
 *::after {
   box-sizing: border-box;
 }
+
 .callout {
   position: relative;
   margin: 15px 0;
@@ -253,4 +254,37 @@ body,
     width: 100%;
     margin: 0;
   }
+}
+
+.media-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.media-row > * {
+  margin: 0.5rem 0;
+}
+
+.media-row > img,
+.media-row > video {
+  max-height: 250px;
+  width: auto;
+  height: auto;
+  flex: 0 1 auto;
+}
+
+@media (max-width: 600px) {
+  .media-row > img,
+  .media-row > video {
+    max-height: none;
+    max-width: 100%;
+  }
+}
+
+.actual-content .media-row > img,
+.actual-content .media-row > video,
+.actual-content .media-row > figure {
+  margin: 0.5rem 0;
 }
