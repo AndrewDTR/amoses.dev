@@ -67,21 +67,10 @@ const { imgLink, title, description } = Astro.props;
         "color: #f8b5b5; font-family: monospace;"
       );
     </script>
-    <script>
-      var _paq = (window._paq = window._paq || []);
-      _paq.push(["trackPageView"]);
-      _paq.push(["enableLinkTracking"]);
-      (function () {
-        var u = "//matomo.amoses.dev/";
-        _paq.push(["setTrackerUrl", u + "matomo.php"]);
-        _paq.push(["setSiteId", "2"]);
-        var d = document,
-          g = d.createElement("script"),
-          s = d.getElementsByTagName("script")[0];
-        g.async = true;
-        g.src = u + "matomo.js";
-        s.parentNode.insertBefore(g, s);
-      })();
-    </script>
+    <script
+      src="https://ribbit.amoses.dev/api/script.js"
+      data-site-id="1"
+      defer
+    ></script>
   </body>
 </html>
