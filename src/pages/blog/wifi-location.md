@@ -10,7 +10,7 @@ bestof: true
 
 ## Attendance
 
-I'm in [Introduction to Algorithms (577)](https://guide.wisc.edu/courses/comp_sci/#:~:text=COMP%C2%A0SCI%C2%A0577%20%E2%80%94%20INTRODUCTION%20TO%20ALGORITHMS) this semester at UW, and I've been enjoying hearing Renault explaining how to prove program correctness, DP, network flow, and the circumstances under which Dijkstra invented his shortest-pat algorithm. 
+I'm in [Introduction to Algorithms (577)](https://guide.wisc.edu/courses/comp_sci/#:~:text=COMP%C2%A0SCI%C2%A0577%20%E2%80%94%20INTRODUCTION%20TO%20ALGORITHMS) this semester at UW, and I've been enjoying hearing Renault explaining how to prove program correctness, DP, network flow, and the circumstances under which Dijkstra invented his shortest-path algorithm. 
 
 
 However... algos is a somewhat unique class for me, given that it's the first course I've taken that mandates being present during lectures by taking attendance. It accomplishes this through a platform called [TopHat](https://tophat.com/), who many students will recognize through its use of displaying participation questions.
@@ -21,7 +21,7 @@ However, I suppose they caught on to the unpatchable strategy of Having Friends,
 
 So, for the paranoid lecturer, TopHat allows "[secure attendance](https://support.tophat.com/article/Educator-Taking-Attendance#SecureAttendance)", a feature which, according to them, determines your location as "...determined by [your] device geolocation or by both geolocation and proximity (to the classroom and other students)."
 
-The first time I heard about this system, I wondered how much leeway this "geolocation" would afford you. There exist a plethora of traditional "IP geolocation" services, which use your IP address and [ASN](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) -- both semi-unique identifiers sent to the webpage upon load -- to try and identify your location. This provides... varied results depending on where you're located. When in Madison and NYC, popular IP geolocation services have been able to pin me within a mile or so of my actual location. In any suburban area, the error jumps to city-level.[^1] Surely TopHat wouldn't be relying on such an inaccurate measure of detecting location when determining attendance -- students living in Chadbourne Hall taking lectures in Mosse Humanities (appx. 250ft apart) would be able to skirt the attendance requirement. That could be catastrophic!
+The first time I heard about this system, I wondered how much leeway this "geolocation" would afford you. There exist a plethora of traditional "IP geolocation" services, which use your IP address and [ASN](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) -- both semi-unique identifiers sent to the webpage upon load -- to try and identify your location. This provides... varied results depending on where you're located. When in Madison and NYC, popular IP geolocation services have been able to pin me within a mile or so of my actual location. In any suburban area, the error jumps to city-level.[^1] Surely TopHat wouldn't be relying on such an inaccurate measure of detecting location when determining attendance -- students living in Chadbourne Hall taking lectures in Mosse Humanities (approx. 250ft apart) would be able to skirt the attendance requirement. That could be catastrophic!
 
 ## The Geolocation API
 
@@ -42,14 +42,14 @@ Here's how it works. After allowing your browser permission to access your locat
 If those last two are foreign to you, the "SSID" of a network is just the friendly name -- for example, `UWNet` or `eduroam`. The BSSID is the MAC address of the access point, which is unique per each device. Having a unique identifier *per access point* is immensely important, as you can imagine just how many APs are named the same thing. Take a look at the map of APs around campus named `UWNet`:
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
-    <img src="/images/wifi-location/wigle-madison.png" alt="An map of Madison, Wisconsin, with a purple hotspot over the downtown area" style="max-height: 325px; width: auto; max-width: 100%;" />
+    <img src="/images/wifi-location/wigle-madison.png" alt="A map of Madison, Wisconsin, with a purple hotspot over the downtown area" style="max-height: 325px; width: auto; max-width: 100%;" />
 </div>
 
 Okay, so, great. We now know exactly which Wi-Fi network you're connected to. But how does this translate to your location on a map? And how do we even know where these networks are in the real world?
 
 ### Wardriving
 
-The notion of associating Wi-Fi networks with their physical locations has been prevalent since the early 2000s. As far as I can tell, [Skyhook Wireless](https://en.wikipedia.org/wiki/Skyhook_Wireless) were the first to do it on a commercially-available scale, using a technique known as [wardriving](https://en.wikipedia.org/wiki/Wardriving). This entails getting in a vehicle and driving around while capturing the information of as many Wi-Fi networks as possible. Since the devices doing the network scanning also have a reliable knowledge of their position (through GPS), all you have to do is associate the location of *where you saw the network* with its signal strength. Some time-of-flight trigonometry later, and you have a roughly accurate map of Wi-Fi networks you've seen and their corresponding physical locations.
+The notion of associating Wi-Fi networks with their physical locations has been prevalent since the early 2000s. As far as I can tell, [Skyhook Wireless](https://en.wikipedia.org/wiki/Skyhook_Wireless) were the first to do it on a commercially-available scale, using a technique known as [wardriving](https://en.wikipedia.org/wiki/Wardriving). This entails getting in a vehicle and driving around while capturing the information of as many Wi-Fi networks as possible. Since the devices doing the network scanning also have a reliable knowledge of their position (through GPS), all you have to do is associate the location of *where you saw the network* with its signal strength. Some RSSI trilateration later, and you have a roughly accurate map of Wi-Fi networks you've seen and their corresponding physical locations.
 
 The useful thing is that, once in possession of all of this data, you can perform the process in reverse -- on a user's device, send a list of the Wi-Fi networks you can see (and their corresponding [RSSI](https://en.wikipedia.org/wiki/Received_signal_strength_indicator)), and receive an approximate guess on where that places your device in the world. For a while, that's what everyone's devices (including Apple ones, until iOS 3.2) did, relying on either Skyhook's or Google's privately collected list. The latter, interestingly enough, used their Street View vehicles (the ones taking images of roads) to capture the Wi-Fi information for a while.
 
@@ -89,7 +89,7 @@ Over time, the location service providers have improved the security of the APIs
 
 ## Conclusion
 
-If I didn't mention it yet, this technology does have a name. It's called the [Wi-Fi positioning system](https://en.wikipedia.org/wiki/Wi-Fi_positioning_system) (WPS).There's still a vibrant community of Wi-Fi positioning enthusiasts out there -- https://wigle.net/ is a crowd-sourced database from recreational wardrivers who have contributed nearly two billion networks over the last 25 years. You can zoom in on your town and see the Wi-Fi density near you, and you can even check if your own network has been tagged by someone else!
+If I didn't mention it yet, this technology does have a name. It's called the [Wi-Fi positioning system](https://en.wikipedia.org/wiki/Wi-Fi_positioning_system) (WPS). There's still a vibrant community of Wi-Fi positioning enthusiasts out there -- https://wigle.net/ is a crowd-sourced database from recreational wardrivers who have contributed nearly two billion networks over the last 25 years. You can zoom in on your town and see the Wi-Fi density near you, and you can even check if your own network has been tagged by someone else!
 
 I'd also be remiss if I didn't mention https://beacondb.net/, a self described "public domain wireless geolocation database", which, while I haven't had time to play with, sounds like a very promising open version of the trackers so commonly used nowadays. While it doesn't have as dense of a database as any of the other providers, I actually think it's neat to have a lack of homogeneity among the smaller providers -- it shows the data is truly different!
 
