@@ -89,7 +89,7 @@ Over time, the location service providers have improved the security of the APIs
 
 ## Conclusion
 
-There's still a vibrant community of Wi-Fi positioning enthusiasts out there -- https://wigle.net/ is a crowd-sourced database from recreational wardrivers who have contributed nearly two billion networks over the last 25 years. You can zoom in on your town and see the Wi-Fi density near you, and you can even check if your own network has been tagged by someone else!
+If I didn't mention it yet, this technology does have a name. It's called the [Wi-Fi positioning system](https://en.wikipedia.org/wiki/Wi-Fi_positioning_system) (WPS).There's still a vibrant community of Wi-Fi positioning enthusiasts out there -- https://wigle.net/ is a crowd-sourced database from recreational wardrivers who have contributed nearly two billion networks over the last 25 years. You can zoom in on your town and see the Wi-Fi density near you, and you can even check if your own network has been tagged by someone else!
 
 I'd also be remiss if I didn't mention https://beacondb.net/, a self described "public domain wireless geolocation database", which, while I haven't had time to play with, sounds like a very promising open version of the trackers so commonly used nowadays. While it doesn't have as dense of a database as any of the other providers, I actually think it's neat to have a lack of homogeneity among the smaller providers -- it shows the data is truly different!
 
