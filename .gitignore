@@ -27,5 +27,4 @@ pnpm-debug.log*
 .obsidian/
 
 # until i finish
-yap-kitchen.md
-ics-schedule-generator.md
+src/pages/blog/mta-find-display.md
