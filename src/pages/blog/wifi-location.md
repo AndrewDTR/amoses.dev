@@ -21,6 +21,10 @@ However, I suppose they caught on to the unpatchable strategy of Having Friends,
 
 So, for the paranoid lecturer, TopHat allows "[secure attendance](https://support.tophat.com/article/Educator-Taking-Attendance#SecureAttendance)", a feature which, according to them, determines your location as "...determined by [your] device geolocation or by both geolocation and proximity (to the classroom and other students)."
 
+<div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
+    <img src="/images/wifi-location/tophat.png" alt="TopHat's attendance code feature showing secure attendance enabled" style="max-height: 350px; width: auto; max-width: 100%;" />
+</div>
+
 The first time I heard about this system, I wondered how much leeway this "geolocation" would afford you. There exist a plethora of traditional "IP geolocation" services, which use your IP address and [ASN](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) -- both semi-unique identifiers sent to the webpage upon load -- to try and identify your location. This provides... varied results depending on where you're located. When in Madison and NYC, popular IP geolocation services have been able to pin me within a mile or so of my actual location. In any suburban area, the error jumps to city-level.[^1] Surely TopHat wouldn't be relying on such an inaccurate measure of detecting location when determining attendance -- students living in Chadbourne Hall taking lectures in Mosse Humanities (approx. 250ft apart) would be able to skirt the attendance requirement. That could be catastrophic!
 
 ## The Geolocation API
