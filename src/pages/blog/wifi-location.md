@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/Blog.astro"
 title: "It's your fault my laptop knows where I am"
-pubDate: "2025-11-03"
+pubDate: "2025-11-19"
 description: "How dare you!"
 tags: ["investigations", "uw"]
 author: "Andrew"
