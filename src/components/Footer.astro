@@ -20,9 +20,6 @@ const currentYear = new Date().getFullYear();
       </a>
     </div>
     <div class="footer-section">
-      <p class="made-with-love">Made with &lt;3</p>
-    </div>
-    <div class="footer-section">
       <p className="commit-text">
         {import.meta.env.PROD ? "prod@" : "dev@"}<a
           className="commit-hash"
@@ -67,7 +64,6 @@ const currentYear = new Date().getFullYear();
     margin-right: 20px;
   }
 
-  .made-with-love,
   .commit-text {
     color: #f0e7d8;
     margin: 0;
