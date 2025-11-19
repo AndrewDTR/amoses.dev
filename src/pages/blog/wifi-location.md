@@ -5,6 +5,8 @@ pubDate: "2025-11-19"
 description: "How dare you!"
 tags: ["investigations", "uw"]
 author: "Andrew"
+discussion: "Hacker News"
+discussion_link: "https://news.ycombinator.com/item?id=45985867"
 bestof: true
 ---
 
