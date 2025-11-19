@@ -5,12 +5,16 @@ export async function GET(context) {
         import.meta.glob('./blog/*.{md,mdx}')
     );
 
-    console.log(originalItems)
 
-    const itemsWithAuthor = originalItems.map((item) => ({
-        ...item,
-        author: 'Andrew Moses',
-    }));
+    const itemsWithAuthor = originalItems
+        .map((item) => ({
+            ...item,
+            author: 'Andrew Moses',
+        }))
+        .sort(
+            (a, b) =>
+                new Date(b.pubDate) - new Date(a.pubDate)
+        );
 
     return rss({
         title: 'Andrew Moses',
