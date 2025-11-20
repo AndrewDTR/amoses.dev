@@ -45,7 +45,7 @@ When you press "allow" on the popup, your browser uses an accuracy heuristic to 
 
 Here's how it works. After allowing your browser permission to access your location, a website has access to the `getCurrentPosition()` function. When calling it, your browser kindly asks your operating system for a list of the surrounding Wi-Fi access points -- more specifically, their signal strength, SSIDs, and BSSIDs.
 
-If those last two are foreign to you, the "SSID" of a network is just the friendly name -- for example, `UWNet` or `eduroam`. The BSSID is the MAC address of the access point, which is unique per each device. Having a unique identifier *per access point* is immensely important, as you can imagine just how many APs are named the same thing. Take a look at the map of APs around campus named `UWNet`:
+If those last two are foreign to you, the "SSID" of a network is just the friendly name -- for example, `UWNet` or `eduroam`. The BSSID is derived from (but not necessarily the same as) the MAC address of the access point, which is unique per each device. Having a unique identifier *per access point* is immensely important, as you can imagine just how many APs are named the same thing. Take a look at the map of APs around campus named `UWNet`:
 
 <div style="display: flex; justify-content: center; gap: 10px; max-width: 100%; flex-wrap: wrap; margin-bottom">
     <img src="/images/wifi-location/wigle-madison.png" alt="A map of Madison, Wisconsin, with a purple hotspot over the downtown area" style="max-height: 325px; width: auto; max-width: 100%;" />
