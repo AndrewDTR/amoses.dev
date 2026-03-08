@@ -2,7 +2,7 @@
 layout: "../../layouts/Blog.astro"
 title: "Learning the NATO phonetic alphabet with the Web Speech API"
 pubDate: "2024-12-29"
-description: "and they told me \"video games can't teach you anything\""
+description: "...and they told me \"video games can't teach you anything\""
 tags: ["projects", "games"]
 author: "Andrew"
 bestof: false
@@ -97,7 +97,7 @@ const SpeechRecognition =
 
 The browser calls a `speech.onresult` event when the user is finished speaking, and... that's it! All the validation is simply comparing that input with the expected result (which I generate from a dictionary of the phoneticizations).
 
-That's it! [Here's the link to the site, if you'd like to try it out](https://nato.amoses.dev/). It's [entirely open source](https://github.com/AndrewDTR/learn-nato), so feel free to peek around if you're curious about any of the implementation details.
+That's it! [Here's the link to the site, if you'd like to try it out](https://nato.amoses.dev/). It's [entirely open source](https://github.com/AndrewDTR/learn-nato), so feel free to peek around if you're curious about any of the implementation details. ■
 
 [^1]: _And_ because I'd like to be able to listen to plane spotting/ATC breakdown videos without having to pause the video and interpret the letters being said...
 

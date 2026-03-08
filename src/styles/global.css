@@ -111,6 +111,16 @@ a:hover {
   color: #ffaaaa;
 }
 
+a em {
+  color: #f0e7d8;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+a:hover em {
+  color: #ffaaaa;
+}
+
 hr.custom-hr {
   border: none;
   height: 5px;
@@ -287,4 +297,8 @@ body,
 .actual-content .media-row > video,
 .actual-content .media-row > figure {
   margin: 0.5rem 0;
+}
+
+abbr {
+  cursor: help;
 }

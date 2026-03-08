@@ -2,7 +2,7 @@
 layout: "../../layouts/Blog.astro"
 title: "Revamping the UPL's people counter"
 pubDate: "2024-10-14"
-description: "who knew figuring out the lab's occupancy would be so much work?!"
+description: "Who knew figuring out the lab's occupancy would be so much work?!"
 tags: ["projects", "upl", "uw"]
 author: "Andrew"
 discussion: "Hacker News"
@@ -377,7 +377,7 @@ Now, the server will query Home Assistant's API on your behalf (with the proper 
 
 ## Conclusion
 
-I'm pretty happy with how this project turned out. It's been really fun developing something that I actually use every day, and I find it pretty special that every time I check if the UPL's open or not, I'm doing it via something that I made myself.
+I'm pretty happy with how this project turned out. It's been really fun developing something that I actually use every day, and I find it pretty special that every time I check if the UPL's open or not, I'm doing it via something that I made myself. ■
 
 <br>
 

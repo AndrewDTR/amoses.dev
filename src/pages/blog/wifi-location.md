@@ -99,7 +99,7 @@ If I didn't mention it yet, this technology does have a name. It's called the [W
 
 I'd also be remiss if I didn't mention https://beacondb.net/, a self described "public domain wireless geolocation database", which, while I haven't had time to play with, sounds like a very promising open version of the trackers so commonly used nowadays. While it doesn't have as dense of a database as any of the other providers, I actually think it's neat to have a lack of homogeneity among the smaller providers -- it shows the data is truly different!
 
-It's been really fun diving down this rabbit hole to learn how our devices gain access to our location. It's one of the more niche things that I've taken for granted when using my devices, and it certainly didn't occur to me that, while in lecture, the only reason I could be marked present was because thousands of other students had (without their knowledge) pinged servers all over the world.
+It's been really fun diving down this rabbit hole to learn how our devices gain access to our location. It's one of the more niche things that I've taken for granted when using my devices, and it certainly didn't occur to me that, while in lecture, the only reason I could be marked present was because thousands of other students had (without their knowledge) pinged servers all over the world. ■
 
 <br>
 
