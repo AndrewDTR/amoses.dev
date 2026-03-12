@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await Astro.glob("./blog/*.md");
 
 allPosts.sort(
-  (a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)
+  (a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate),
 );
 ---
 
@@ -34,17 +34,21 @@ allPosts.sort(
                 style="font-size: 1em;"
               >
                 University of Wisconsin-Madison</a
-              >, where I'm majoring in Computer Science and Mathematics. Right now, my technical
-              interests include
+              >, where I'm majoring in Computer Science and Mathematics. Right
+              now, my technical interests include
               <span class="first-like"></span>,
               <span class="second-like"></span>, and <span class="third-like"
               ></span> (click to shuffle!), though you can feel free to ask me about
-              electric skateboards or video game consoles.
+              electric skateboarding or my Tetris forty-line personal best.
             </p>
             <p class="writeup writeup2">
-              This past summer, I was a Software Engineering Intern at <a
-                href="https://paypal.com">PayPal.</a
-              >
+              This summer, I'll be a Software Engineer Intern at <a
+                href="https://www.netflix.com/"
+                target="_blank">Netflix</a
+              >. Last summer, I interned at <a
+                href="https://paypal.com"
+                target="_blank">PayPal</a
+              >.
             </p>
             <p class="writeup writeup2">
               If you find the writing on here interesting, or just want to reach
@@ -242,17 +246,16 @@ allPosts.sort(
       "web development",
       "computer vision",
       "communication protocols",
-      "Astro",
-      "Python",
-      "Java",
       "CUDA",
       "Postgres",
       "Node.js",
       "SvelteKit",
-      "3D Printing",
       "Synthetic Aperture Radar",
       "TypeScript",
       "websockets",
+      "OpenGL",
+      "Rust",
+      "MiniZinc",
     ];
 
     function selectThreeRandomItems() {
@@ -279,7 +282,7 @@ allPosts.sort(
 
     function pickNewItem(excludeItems) {
       const availableItems = thingsToAsk.filter(
-        (item) => !excludeItems.includes(item)
+        (item) => !excludeItems.includes(item),
       );
       if (availableItems.length === 0) return null;
       const randomItem =
@@ -292,7 +295,7 @@ allPosts.sort(
       const oldItem = span.textContent.trim();
 
       const otherSpans = [firstSpan, secondSpan, thirdSpan].filter(
-        (s) => s !== span
+        (s) => s !== span,
       );
       const otherItems = otherSpans.map((s) => s.textContent.trim());
 
