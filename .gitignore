@@ -28,3 +28,4 @@ pnpm-debug.log*
 
 # until i finish
 src/pages/blog/mta-find-display.md
+src/pages/blog/pcb-manufacturing.md

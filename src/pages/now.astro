@@ -1,0 +1,15 @@
+---
+const thenPosts = Object.values(
+  import.meta.glob("./then/*.md", { eager: true }),
+);
+
+thenPosts.sort((dateOne, dateTwo) =>
+  dateOne.file
+    .split("/")
+    .at(-1)
+    .substring(0, 8)
+    .localeCompare(dateTwo.file.split("/").at(-1).substring(0, 8)),
+);
+
+return Astro.rewrite(thenPosts.at(-1).url);
+---

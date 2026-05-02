@@ -10,12 +10,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <h2>About me</h2>
 
   <p class="writeup">
-    Hello! I'm Andrew Moses, an engineer who loves tinkering with anything
+    Hello, welcome to my website! I'm Andrew, an engineer who loves tinkering with anything
     remotely electronic. I'm a student at the
     <a href="https://wisc.edu" target="_blank" style="font-size: 1em;">
       University of Wisconsin-Madison</a
-    >, where I'm majoring in Computer Science and Mathematics. I'm originally from New York City,
-    where I love exploring and skating around the boroughs.
+    >, where I'm majoring in Computer Science and Mathematics. I'm originally
+    from New York City, where I love exploring and skating around the boroughs.
   </p>
 
   <div
@@ -33,9 +33,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <p style="margin-bottom: 0;">
     Feel free to contact me for whatever reason. I'd love to hear from you (if
-    you aren't a bot or AI agent; please don't spam my address!). You can
-    reach out to me by emailing <code>me (at) amoses (dot) dev</code>. If you'd
-    like to sign or encrypt a message, my PGP key is below.
+    you aren't a bot or AI agent; please don't spam my address!). You can reach
+    out to me by emailing <code>me (at) amoses (dot) dev</code>. If you'd like
+    to sign or encrypt a message, my PGP key is below.
   </p>
 
   <div
@@ -49,16 +49,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <h2 style="margin-top: 0;">
     <abbr
-      title="noun. a statement at the end of a book, typically with a printer's emblem, giving information about its authorship and printing. (Oxford Languages)"
+      title="n. a statement at the end of a book, typically with a printer's emblem, giving information about its authorship and printing. (Oxford Languages)"
       class="info-tooltip">Colophon</abbr
     >
   </h2>
-
-  <p>
-    I've wanted to have a personal website/a place to be able to write and put
-    blog posts for a while now, and it's only until somewhat recently that I've
-    been able to actually sit down and build out the site I wanted.
-  </p>
 
   <p>
     This site was built off of <a href="https://astro.build/" target="_blank"
@@ -112,40 +106,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     design at one point, but I wasn't prepared for how intensive the calculations
     are for drawing them on screen dynamically without disturbing the content. I'll
     try to get back around to that at some point, because I like the idea of sidenotes
-    more than footnotes. (P.S: That gwern link has a fantastic, almost scarily in-depth
-    page on sidenotes in web design. I'd highly recommend checking it out if that
-    kind of stuff interests you.)
+    more than footnotes.
   </p>
   <p>
     The source for this website is <a
       href="https://github.com/AndrewDTR/website"
       target="_blank">available on my GitHub</a
     >, and you're able to view the changes made in the most recent revision with
-    the commit link in the footer. If you're wondering, <a
-      href="https://github.com/AndrewDTR/website/blob/e848da9a97124a891b659fce1a2a0fcffb2cf736/src/components/Footer.astro#L2-L7"
-      target="_blank">that's done server-side at build time</a
-    > by parsing the output of <code class="git-cmd"
-      >git rev-parse --short HEAD</code
-    > (which is ran by Node.js' <code>child_process</code>). That feature was
-    inspired by Xe Iaso, whose work I've seen on Hacker News.
+    the commit link in the footer.
   </p>
-
-  <p>
-    While I <i>do</i> have a VPS that I put my dynamic projects on, this site is
-    built with GitHub Actions due to its static nature. I just have to make a change,
-    commit, and push it, and GitHub will automatically re-build the site and deploy
-    it automatically for me.
-  </p>
-
-  <p>
-    I've certainly wanted to write more posts on this website -- and once I'm
-    able to get my schedule under control, I definitely think I will. It's super
-    fun knowing that there are <i>actual people</i> reading the things I'm writing,
-    and as long as I have interesting things to talk about, I don't see any reason
-    to stop.
-  </p>
-
-  <p style="text-align: right; margin-top: 40px;">Andrew</p>
 </BaseLayout>
 
 <style>

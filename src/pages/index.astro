@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const allPosts = await Astro.glob("./blog/*.md");
+const allPosts = Object.values(
+  import.meta.glob("./blog/*.md", { eager: true }),
+);
 
 allPosts.sort(
   (a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate),
@@ -58,12 +60,7 @@ allPosts.sort(
           </div>
         </div>
         <hr class="custom-hr" />
-        <p>
-          Here are the five latest articles I've published. You can find the
-          entire list of my writing <a href="/blog" style="font-size: 1em;"
-            >on the blog page</a
-          >.
-        </p>
+        <p>Recent writing:</p>
         <ul class="blog-list">
           {
             allPosts.slice(0, 5).map((post) => (
@@ -81,6 +78,7 @@ allPosts.sort(
             ))
           }
         </ul>
+        <p style="margin-top: 16px;"><a href="./blog">More posts →</a></p>
       </div>
     </div>
   </div>

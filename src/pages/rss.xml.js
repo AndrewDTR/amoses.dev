@@ -5,8 +5,18 @@ export async function GET(context) {
         import.meta.glob('./blog/*.{md,mdx}')
     );
 
+    const thenPosts = Object.values(
+        import.meta.glob('./then/*.md', { eager: true })
+    );
 
-    const itemsWithAuthor = originalItems
+    const thenItems = thenPosts.map((post) => ({
+        title: `Updates (Now Page) - ${post.frontmatter.date}`,
+        pubDate: post.frontmatter.date,
+        link: post.url,
+    }));
+
+
+    const itemsWithAuthor = [...originalItems, ...thenItems]
         .map((item) => ({
             ...item,
             author: 'Andrew Moses',

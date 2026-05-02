@@ -15,10 +15,7 @@ const hasDiscussion = frontmatter.discussion && frontmatter.discussion_link;
     <p class="blog-title">{frontmatter.title}</p>
     <p class="description">{frontmatter.description}</p>
     <p class="others">
-      <i class="fa-solid fa-user fa-sm" style="padding-right: 2px;"></i>
-      By {frontmatter.author || "Me"} | <i
-        class="fa-regular fa-calendar fa-sm"
-        style="padding-right: 2px;"></i>
+      <i class="fa-regular fa-calendar fa-sm" style="padding-right: 2px;"></i>
       {frontmatter.pubDate || "Date Unknown"}
     </p>
     {

@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const { frontmatter } = Astro.props;
+const imgLink = `${Astro.url.origin}/og${Astro.url.pathname.replace(/\/$/, "")}.png`;
+---
+
+<BaseLayout imgLink={imgLink} title="Now" description="A little now page">
+  <div slot="outside-content" class="top">
+    <p class="blog-title">Now – {frontmatter.date}</p>
+    <p class="description">This is a <a href="https://nownownow.com/about">now page</a>. I hope to have it stay somewhat up to date with my current goings-on...</p>
+    <hr class="custom-hr" style="margin-top: 25px;" />
+  </div>
+
+  <div class="actual-content">
+    <slot />
+  </div>
+
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    .blog-title {
+      font-size: 2.4em;
+      font-weight: bold;
+      margin-top: 0.5em;
+      margin-bottom: 0;
+    }
+
+    .description {
+      font-size: 1.25em;
+      margin-top: 0.2em;
+      margin-bottom: 1em;
+      font-style: italic;
+    }
+
+    .others {
+      margin-bottom: 0;
+    }
+
+    code {
+      padding: 0.2em 0.4em;
+      margin: 0;
+      font-size: 85%;
+      white-space: break-spaces;
+      background-color: #777f8a33;
+      border-radius: 6px;
+      color: white;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+        monospace;
+      margin-right: 2px;
+    }
+
+    .tags {
+      margin-top: 3px;
+      margin-bottom: 0px;
+    }
+
+    .content {
+      margin-top: 0px;
+      padding-top: 0px;
+    }
+
+    .top {
+      left-margin: 20px;
+    }
+
+    .tags a {
+      text-decoration: none;
+    }
+
+    .tag-code {
+      transition: background-color 0.2s;
+    }
+
+    .tag-code:hover {
+      background-color: #555f6a;
+    }
+
+    .discussion {
+      margin-top: 4px;
+    }
+  </style>
+</BaseLayout>

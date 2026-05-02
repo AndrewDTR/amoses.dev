@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const allPosts = await Astro.glob("./blog/*.md");
+const allPosts = Object.values(
+  import.meta.glob("./blog/*.md", { eager: true }),
+);
 
 function groupPostsByYearAndMonth(posts) {
   const grouped = {};
@@ -60,7 +62,9 @@ const monthNames = [
                       )}
                       <h2 class="lower">{post.frontmatter.title}</h2>
                     </div>
-                    <i class="lower description">{post.frontmatter.description}</i>
+                    <i class="lower description">
+                      {post.frontmatter.description}
+                    </i>
                   </a>
                 </li>
               ))}

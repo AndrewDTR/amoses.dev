@@ -4,7 +4,6 @@ title: "MadHacks Potpourri"
 pubDate: "2026-03-07"
 description: "Some hacks for hacking a hackathon"
 tags: ["upl", "uw"]
-author: "Andrew"
 bestof: true
  
 ---

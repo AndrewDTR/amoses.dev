@@ -3,6 +3,8 @@ import "../styles/global.css";
 const currentPath = Astro.url.pathname;
 // remove leading or trailing slashes
 const fixedPath = currentPath.replace(/^\/|\/$/g, "");
+
+const isBlog = fixedPath.split("/")[0] === "blog";
 ---
 
 <div class="header-container">
@@ -36,9 +38,17 @@ const fixedPath = currentPath.replace(/^\/|\/$/g, "");
       </svg>
       <b class="no-underline">Andrew Moses</b>
     </a>
-    <a class={`nav ${fixedPath === "blog" ? "bold" : ""}`} href="/blog">Blog</a>
-    <a class={`nav ${fixedPath === "about" ? "bold" : ""}`} href="/about"
-      >About</a
+    <a
+      class={`nav ${isBlog ? "bold header-select" : ""}`}
+      href="/blog">Blog</a
+    >
+    <a
+      class={`nav ${fixedPath === "now" ? "bold header-select" : ""}`}
+      href="/now">Now</a
+    >
+    <a
+      class={`nav ${fixedPath === "about" ? "bold header-select" : ""}`}
+      href="/about">About</a
     >
   </div>
   <div class="icons">
@@ -238,5 +248,9 @@ const fixedPath = currentPath.replace(/^\/|\/$/g, "");
 
   .namelogo {
     padding-right: 5px;
+  }
+
+  .header-select {
+    text-decoration: underline;
   }
 </style>

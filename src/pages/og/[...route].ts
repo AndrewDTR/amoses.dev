@@ -1,13 +1,21 @@
 import { OGImageRoute } from "astro-og-canvas";
 
-const pages = await import.meta.glob("/src/pages/**/*.md", { eager: true });
+const pages = import.meta.glob("/src/pages/**/*.md", { eager: true });
 
 export const { getStaticPaths, GET } = OGImageRoute({
   param: "route",
   pages,
   getImageOptions: (_path, page) => ({
-    title: page.frontmatter.title || "Default Title",
-    description: page.frontmatter.description || "Default description",
+    title:
+      page.frontmatter.title ||
+      (page.url.split("/").at(1) === "then"
+        ? `Now – ${page.frontmatter.date}`
+        : null) ||
+      "Default Title",
+    description:
+      page.frontmatter.description ||
+      (page.url.split("/").at(1) === "then" ? `My current goings-on` : null) ||
+      "Default description",
     dir: page.dir,
     logo: { path: "./src/amoses.png", size: [50] },
     border: { color: [240, 231, 216], width: 20, side: "inline-start" },
