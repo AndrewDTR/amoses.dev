@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.originPathname;
 // remove leading or trailing slashes
 const fixedPath = currentPath.replace(/^\/|\/$/g, "");
 

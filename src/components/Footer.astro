@@ -20,9 +20,9 @@ const currentYear = new Date().getFullYear();
       </a>
     </div>
     <div class="footer-section">
-      <p className="commit-text">
+      <p class="commit-text">
         {import.meta.env.PROD ? "prod@" : "dev@"}<a
-          className="commit-hash"
+          class="commit-hash"
           href={`https://github.com/AndrewDTR/website/commit/${hash}`}
           target="_blank"
           aria-label="GitHub commit hash"
@@ -70,7 +70,6 @@ const currentYear = new Date().getFullYear();
   }
 
   .commit-hash {
-    margin-left: 5px;
     color: #f0e7d8;
     text-decoration: underline;
     font-size: 1em;
@@ -84,24 +83,25 @@ const currentYear = new Date().getFullYear();
   @media (max-width: 600px) {
     .footer-container {
       flex-direction: column;
-      align-items: flex-start;
-      padding: 10px 15px;
+      align-items: center;
+      padding: 12px 15px;
+      gap: 4px;
     }
 
     .footer-right {
       width: 100%;
-      justify-content: space-between;
-      margin-top: 10px;
+      justify-content: center;
+      text-align: center;
+      margin-top: 2px;
     }
 
     .footer-section {
-      width: 48%;
+      width: auto;;
       margin-right: 0;
-      margin-bottom: 10px;
     }
 
     .footer-section:last-child {
-      text-align: right;
+      text-align: center;
     }
 
     .commit-hash {
@@ -110,6 +110,11 @@ const currentYear = new Date().getFullYear();
 
     .rss {
       display: none;
+    }
+
+    .footer-words p,
+    .commit-text {
+      margin: 0;
     }
   }
 
