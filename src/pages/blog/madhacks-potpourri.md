@@ -85,7 +85,7 @@ After that was set up, I configured the Airtable automation to blast the emails 
     <img src="/images/madhacks-potpourri/email-scream.png" alt="Discord screenshot of Andrew sending a console full of errors with the caption 'AAAAAAAAA'" style="max-height: 350px; width: auto; max-width: 100%;" />
 </div>
 
-I woke up at 1:00pm to find approximately 20/400 emails had been sent -- nearly 4 hours after they were scheduled. Something was definitely wrong. Opening the MadHacks Gmail account showed that, even worse, some people had seen their friend/teammate get sent an email and were now sending us emails panicking that they thought they hadn't been properly admitted to the event.
+I woke up at 1:00pm to find approximately 20 out of 400 emails had been sent -- nearly 4 hours after they were scheduled. Something was definitely wrong. Opening the MadHacks Gmail account showed that, even worse, some people had seen their friend/teammate get sent an email and were now sending us emails panicking that they thought they hadn't been properly admitted to the event.
 
 This hadn't happened in any of the tests I had done with Airtable or Nodemailer, so I was floored. The Gmail account didn't show any emails bouncing -- in fact, the 20 or so that had been sent were delivered perfectly. I cautiously opened the logs of the SvelteKit server the email endpoint was listening on, and that's when I saw a console flooded with  `Too many login attempts, please try again later`. The one thing I had feared!
 
